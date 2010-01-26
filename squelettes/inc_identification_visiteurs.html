@@ -1,0 +1,19 @@
+#CACHE{3600}
+[(#REM) Identification ]
+
+
+
+
+<?php if ($auteur_session) { ?>
+
+Vous êtes authentifié, <a href='#URL_LOGOUT'>cliquez ici pour vous déconnecter</a>
+
+... ici le contenu en accès restreint....
+
+<?php } else { ?>
+
+<h2>Cette partie est en accès restreint</h2>
+#LOGIN_PUBLIC
+
+<?php } ?>
+

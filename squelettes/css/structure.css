@@ -1,0 +1,140 @@
+body {
+	text-align: center;
+}
+
+#enveloppe {
+	margin: 0 auto;
+	width: 960px;
+}
+
+#entete {
+	margin: 40px 0 0;
+	padding: 0 10px 0;
+	position: relative;
+}
+
+#corps, #piedPage {
+	margin: 0 10px 0;
+}
+
+#corps {
+	padding-top: 3em;
+}
+
+#rubrique #contenu {
+	float: right;
+	margin: 3em 0 0;
+}
+
+#rubrique div.secteur194 #contenu, #rubrique div.secteur193 #contenu, #recherche #contenu, #mot #contenu {
+	width: 700px;
+}
+
+#rubrique div.secteur199 #contenu {
+	width: 580px;
+}
+
+#rubrique div.secteur193 #contenu, #rubrique div.secteur199 #contenu, #recherche #contenu, #mot #contenu {
+	float: left;
+	margin-top: 0;
+}
+
+#article #colonneSecondaire, #rubrique div.secteur193 #colonneSecondaire, #rubrique div.secteur199 #colonneSecondaire, #recherche #colonneSecondaire, #mot #colonneSecondaire {
+	margin-left: 20px;
+}
+
+#rubrique div.secteur193 #colonneSecondaire, #rubrique div.secteur194 #colonneSecondaire, #recherche #colonneSecondaire, #mot #colonneSecondaire {
+	width: 220px;
+}
+
+#rubrique div.secteur199 #colonneSecondaire {
+	width: 340px;
+}
+
+div.secteur193 #colonneSecondaire {
+	margin-top: 4.5em;
+}
+
+div.secteur199 #colonneSecondaire {
+	margin-top: 7em;
+}
+
+#recherche #colonneSecondaire, #mot #colonneSecondaire {
+	margin-top: 8em;
+}
+
+.conteneur {
+	margin: 3em 0 0;
+}
+
+.droite {
+	margin-left: 20px;
+}
+
+#colonneSecondaire .gauche {
+	margin-right: 20px;
+}
+
+#colonneSecondaire .droite {
+	margin-left: 0;
+}
+
+/* tailles en fonction de la grille */
+
+.grille16 {
+	width: 940px;
+}
+
+.grille14 {
+	width: 820px;
+}
+
+.grille13{
+	width: 760px;
+}
+
+.grille12 {
+	width: 700px;
+}
+
+.grille10 {
+	width: 580px;
+}
+
+.grille8 {
+	width: 460px;
+}
+
+.grille7 {
+	width: 400px;
+}
+
+.grille6 {
+	width: 340px;
+}
+
+.grille4 {
+	width: 220px;
+}
+
+.grille3 {
+	width: 160px;
+}
+
+/* elements generiques */
+
+.colonne {
+	float: left;
+}
+
+/* affichage de la grille pour le développement du site */
+
+.grille {
+	background: url(../images/960_grid_16_col.png) repeat-y center center;
+}
+
+#toggle {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}

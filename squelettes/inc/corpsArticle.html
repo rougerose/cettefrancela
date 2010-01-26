@@ -1,0 +1,97 @@
+<BOUCLE_article(ARTICLES){id_article}>
+<B_contact><BOUCLE_contact(MOTS){id_article}{titre=contact}> </BOUCLE_contact></B_contact>[(#SET{socialtags,st})]<//B_contact>
+<div id="texte" class="colonne[ (#GET{socialtags})]">
+    <div id="meta">
+        <BOUCLE_evenement(EVENEMENTS){id_article}>
+        <dl id="hcalendar-id#ID_ARTICLE" class="vevent">
+            <dt class="summary">[(#TITRE|supprimer_numero)]</dt>
+            [(#DATE_DEBUT|affdate{d-m}|=={[(#DATE_FIN|affdate{d-m})]}|oui)
+                [(#HORAIRE|=={oui}|?{' '})
+                [<dd>
+                    <span class="libelle">Quand&nbsp;? </span>
+                    <abbr class="dtstart" title="[(#DATE_DEBUT|affdate{Y-m-d})][T(#DATE_DEBUT|heures)][:(#DATE_DEBUT|minutes):00][(#DATE_DEBUT|affdate{O})]">
+                        [Le (#DATE_DEBUT|affdate)] (#DATE_DEBUT|heures)[:(#DATE_DEBUT|minutes)]
+                    </abbr>
+                    <span class="separateur"> &#x2192; </span>
+                    [<abbr class="dtend" title="[(#DATE_FIN|affdate{Y-m-d})][T(#DATE_FIN|heures)][:(#DATE_FIN|minutes):00][(#DATE_FIN|affdate{O})]">
+                        (#DATE_FIN|heures)[:(#DATE_FIN|minutes)]
+                    </abbr>]
+                </dd>]
+                ]
+
+                [(#HORAIRE|=={non}|?{' '})
+                <dd>
+                    <span class="libelle">Quand&nbsp;? </span>
+                    <abbr class="dtstart" title="[(#DATE_DEBUT|affdate{Y-m-d})]">
+                        [Le (#DATE_DEBUT|jour)] [(#DATE_DEBUT|nom_mois)]
+                    </abbr> 
+                    [<abbr class="dtend" title="[(#DATE_FIN|affdate{Y-m})][-(#DATE_FIN|affdate{d}|plus{1})]">
+                        (#DATE_FIN|annee)
+                    </abbr>]
+                </dd>
+                ]
+            ]
+            [(#DATE_DEBUT|affdate{d-m}|=={[(#DATE_FIN|affdate{d-m})]}|non)
+                [(#HORAIRE|=={oui}|?{' '})
+                [<dd>
+                    <span class="libelle">Quand&nbsp;? </span>
+                    <abbr class="dtstart" title="[(#DATE_DEBUT|affdate{Y-m-d})][T(#DATE_DEBUT|heures)][:(#DATE_DEBUT|minutes):00][(#DATE_DEBUT|affdate{O})]">
+                        [Le (#DATE_DEBUT|affdate)] (#DATE_DEBUT|heures)[:(#DATE_DEBUT|minutes)]
+                    </abbr>
+                    <span class="separateur"> &#x2192; </span>
+                    [<abbr class="dtend" title="[(#DATE_FIN|affdate{Y-m-d})][T(#DATE_FIN|heures)][:(#DATE_FIN|minutes):00][(#DATE_FIN|affdate{O})]">
+                        [(#DATE_FIN|affdate) ](#DATE_FIN|heures)[:(#DATE_FIN|minutes)]
+                    </abbr>]
+                </dd>]
+                ]
+
+                [(#HORAIRE|=={non}|?{' '})
+                <dd>
+                    <span class="libelle">Quand&nbsp;? </span>
+                    <abbr class="dtstart" title="[(#DATE_DEBUT|affdate{Y-m-d})]">
+                        [Le (#DATE_DEBUT|jour)] [(#DATE_DEBUT|nom_mois)]
+                    </abbr> 
+                    [<abbr class="dtend" title="[(#DATE_FIN|affdate{Y-m})][-(#DATE_FIN|affdate{d}|plus{1})]">
+                        (#DATE_FIN|annee)
+                    </abbr>]
+                </dd>
+                ]
+            ]
+            [<dd class="location"><span class="libelle">O&ugrave;&nbsp;? </span>(#LIEU|PtoBR)[: (#ADRESSE)]</dd>]
+            [<dd class="description"><span class="libelle">Infos&nbsp;: </span>(#DESCRIPTIF|PtoBR)</dd>]
+        </dl>
+        </BOUCLE_evenement>
+        [<p class="auteur"><span class="libelle">Auteur</span>
+            (#LESAUTEURS)
+        </p>]
+        [<p class="lien"><span class="libelle">Lien</span>
+            <a href="(#URL_SITE)">[(#NOM_SITE|sinon{#URL_SITE})]</a>
+        </p>]
+    </div>
+    
+    
+    
+    
+    [(#CS_DECOUPE)]
+    
+    [<p id="logoArticle" class="colonne"><a href="[IMG/(#LOGO_ARTICLE|fichier)]" rel="shadowbox"[ title="(#TITRE|supprimer_numero)"] class="sbImage">(#LOGO_ARTICLE||image_reduire{220,0}|inserer_attribut{"alt",[(#TITRE|supprimer_numero)]})</a></p>]
+    
+    [<div id="chapo">
+        (#CHAPO)
+    </div>]
+    
+
+    [(#TEXTE|image_reduire{460,0})]
+    
+    [<div id="ps">
+        (#PS)
+    </div>]
+
+    [(#CS_DECOUPE)]
+
+    [<div id="notes">
+        <h3>Notes</h3>
+        (#NOTES)
+    </div>]
+</div>
+</BOUCLE_article>

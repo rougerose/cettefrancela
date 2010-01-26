@@ -1,0 +1,14 @@
+<div id="blocInfosLivre">
+    <BOUCLE_article_infosLivre(ARTICLES){titre_mot=présentation livre}{0,1}>
+    [<p id="logoLivre"><a href="[IMG/(#LOGO_ARTICLE|fichier)]" rel="shadowbox"[ title="(#TITRE|supprimer_numero)"] class="sbImage">(#LOGO_ARTICLE||image_reduire{#ENV{largeur_image},0}|inserer_attribut{"alt",[(#TITRE|supprimer_numero)]})</a></p>]
+
+    <B_mots_infos>
+    <dl id="infosLivre">
+        <BOUCLE_mots_infos(MOTS){id_article}{id_groupe=19}{par num titre}>
+        <dt>[(#TITRE|supprimer_numero)]</dt>
+        <dd class="descriptif">[(#TEXTE)]</dd>
+        </BOUCLE_mots_infos>
+    </dl>
+    </B_mots_infos>
+    </BOUCLE_article_infosLivre>
+</div>

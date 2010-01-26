@@ -1,0 +1,29 @@
+<BOUCLE_parent(RUBRIQUES){id_parent}>
+
+<BOUCLE_196(RUBRIQUES){id_rubrique}{id_rubrique=196}>
+<B_descriptions>
+[(#ANCRE_PAGINATION)]
+<h2 class="titreChapitre"><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)</a>]</h2>
+<div class="section grille12 rubrique#ID_RUBRIQUE clearfix">
+    [(#PAGINATION{cfl})]
+    <BOUCLE_descriptions(ARTICLES){id_rubrique}{par num titre}{titre_mot=texte principal}{pagination 1}{doublons descriptions}>
+    <div class="principal grille12">
+        <h3>[<a href="#URL_ARTICLE">(#TITRE|supprimer_numero)</a>]</h3>
+        [<p class="soustitre">(#SOUSTITRE)</p>]
+        [<p class="descriptif">(#DESCRIPTIF|sinon{#INTRODUCTION}) <a href="#URL_ARTICLE" class="suite">suite</a></p>]
+    </div>
+    <BOUCLE_regroupement196(MOTS){id_article}{id_groupe=20}>
+    <BOUCLE_vignettes196(ARTICLES){id_rubrique}{id_mot}{par num titre}{doublons descriptions}>
+    <div class="vignettes grille6 colonne [numero(#COMPTEUR_BOUCLE|alterner{1,2})]">
+        <h4>[<a href="#URL_ARTICLE">(#TITRE|supprimer_numero)</a>]</h4>
+        [<p class="soustitre">(#SOUSTITRE)</p>]
+        [<p class="descriptif">(#DESCRIPTIF|sinon{#INTRODUCTION}|couper{150}) <a href="#URL_ARTICLE" class="suite">suite</a></p>]
+    </div>
+    </BOUCLE_vignettes196>
+    </BOUCLE_regroupement196>
+    </BOUCLE_descriptions>
+</div>
+</B_descriptions>
+</BOUCLE_196>
+
+</BOUCLE_parent>

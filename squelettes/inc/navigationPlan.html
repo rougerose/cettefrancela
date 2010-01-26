@@ -1,0 +1,27 @@
+<hr class="invisible" />
+<BOUCLE_articles_invisibles(ARTICLES){titre_mot=présentation livre}{doublons invisible}></BOUCLE_articles_invisibles>
+<BOUCLE_exclu_contact(ARTICLES){titre_mot=contact}{doublons invisible}></BOUCLE_exclu_contact>
+<div id="navigationPlan" class="grille16 clearfix">
+    <BOUCLE_secteurs(RUBRIQUES){racine}{par num titre}>
+    <dl class="grille3 colonne">
+        <dt><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></dt>
+        <BOUCLE_articles_actu(ARTICLES){id_rubrique}{id_rubrique=199}{0,5}{!par date}{doublons actu}>
+        <dd><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></dd>
+        </BOUCLE_articles_actu>
+        <BOUCLE_articles_autres(ARTICLES){id_rubrique}{id_rubrique!=199}{par num titre}{doublons invisible}{doublons actu}>
+        <dd><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></dd>
+        </BOUCLE_articles_autres>
+        <BOUCLE_sousrubriques(RUBRIQUES){id_parent}{par num titre}>
+        <dd><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></dd>
+        </BOUCLE_sousrubriques>
+    </dl>
+    </BOUCLE_secteurs>
+    <dl class="grille3 colonne">
+        <dt>Informations &amp; contact</dt>
+        <BOUCLE_article_contact(ARTICLES){titre_mot=contact}>
+        <dd><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></dd>
+        </BOUCLE_article_contact>
+        <dd><a href="http://listes.rezo.net/mailman/listinfo/cettefrancela">Lettre d'informations</a></dd>
+        <dd><a href="#URL_PAGE{backend}">RSS</a></dd>
+    </dl>
+</div>

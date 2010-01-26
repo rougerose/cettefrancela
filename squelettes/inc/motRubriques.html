@@ -1,0 +1,15 @@
+<B_rubriques>
+<div class="resultats">
+    #ANCRE_PAGINATON
+    <h2>[(#GRAND_TOTAL) ][(#GRAND_TOTAL|>{1}|?{'rubriques','rubrique'})]</h2>
+    [(#PAGINATION{cfl})]
+    <dl>
+        <BOUCLE_rubriques(RUBRIQUES){id_mot}{!par date}{pagination}>
+        <dt>[(#COMPTEUR_BOUCLE). ]<a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></dt>
+        [<dd class="descriptif">(#DESCRIPTIF)</dd>]
+        [<dd class="url"><p><a href="#URL_RUBRIQUE">(#URL_RUBRIQUE|url_absolue)</a></p></dd>]
+        </BOUCLE_rubriques>
+    </dl>
+    [(#PAGINATION{cfl_bas})]
+</div>
+</B_rubriques>

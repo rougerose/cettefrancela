@@ -1,0 +1,16 @@
+#formulaire_recherche input#recherche {
+	font-size: 1.1em;
+	width: 95px;
+}
+
+#formulaire_recherche button {
+	background-position: center right;
+}
+
+#accueil #resumeLivre {
+	margin-left: 20px;
+}
+
+#accueil #infosLivre {
+	margin-left: 380px;
+}

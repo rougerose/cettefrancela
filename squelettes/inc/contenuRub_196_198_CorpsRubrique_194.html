@@ -1,0 +1,29 @@
+<B_articles_196>
+<div class="section grille12 clearfix">
+    [(#PAGINATION)]
+    <BOUCLE_articles_196(ARTICLES){id_rubrique}{titre_mot=texte principal}{pagination 1}{doublons principal}>
+    <div class="principal grille12">
+        <h2>[<a href="#URL_ARTICLE">(#TITRE|supprimer_numero)</a>]</h2>
+        [<p class="soustitre">(#SOUSTITRE)</p>]
+        [<p class="descriptif">(#DESCRIPTIF|sinon{#INTRODUCTION})</p>]
+    </div>
+    <BOUCLE_mot_regroupement(MOTS){id_article}{id_groupe=18}>
+    <BOUCLE_vignettes(ARTICLES){id_mot}{id_rubrique}{par num titre}{doublons principal}>
+    <div class="vignettes grille6 colonne [numero(#COMPTEUR_BOUCLE|modulo{3})]">
+        <h3 class="titreVignette">[<a href="#URL_ARTICLE">(#TITRE|supprimer_numero)</a>]</h3>
+        [<p class="soustitre">(#SOUSTITRE)</p>]
+        [<p class="descriptif">(#DESCRIPTIF|sinon{#INTRODUCTION}|couper{150})</p>]
+    </div>
+    </BOUCLE_vignettes>
+    </BOUCLE_mot_regroupement>
+    </BOUCLE_articles_196>
+</div>
+</B_articles_196>
+<BOUCLE_articles_rub198(ARTICLES){id_rubrique}{par num titre}>
+<div class="principal grille12">
+    <h2>[<a href="#URL_ARTICLE">(#TITRE|supprimer_numero)</a>]</h2>
+    [<p class="soustitre">(#SOUSTITRE)</p>]
+    [<p class="descriptif">(#DESCRIPTIF|sinon{#INTRODUCTION})</p>]
+</div>
+</BOUCLE_articles_rub198>
+<//B_articles_196>

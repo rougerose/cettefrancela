@@ -1,0 +1,18 @@
+#CACHE{7*24*3600}
+<div id="menuPrincipal" class="clearfix">
+    <ul class="clearfix">
+        <li[ (#ENV{skel}|match{squelettes\/sommaire}|?{'class="on"'})]>
+            <a href="#URL_SITE_SPIP" title="retour &agrave; la page d&#x27;accueil" rel="home">accueil</a>
+        </li>
+        <BOUCLE_menuPrincipal(RUBRIQUES){racine}{par num titre, titre}>
+        <li[ class="(#EXPOSE)"]>
+            <a href="#URL_RUBRIQUE" title="[(#TITRE|supprimer_numero|supprimer_tags|attribut_html)]">
+                [(#TITRE|supprimer_numero)]
+            </a>
+            [(#EXPOSE{' '})
+            [(#INCLURE{fond=inc/menuPrincipalSousrubriques}{id_rubrique}{rubrique=#ENV{id_rubrique}})]
+            ]
+        </li>
+        </BOUCLE_menuPrincipal>
+    </ul>
+</div>

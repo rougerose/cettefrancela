@@ -1,0 +1,25 @@
+#SET{precedent,Actualit&eacute; pr&eacute;c&eacute;dente}
+#SET{suivant,Actualit&eacute; suivante}
+<BOUCLE_article(ARTICLES){id_article}>
+<div id="SuivantPrecedent" class="clearfix">
+    <dl class="grille3 colonne gauche">
+        <dt>#GET{precedent}</dt>
+        <BOUCLE_precedent(ARTICLES){id_rubrique}{age_relatif>=0}{!par date}{1,1}>
+        <dd><a href="#URL_ARTICLE" rel="prev">[(#TITRE|supprimer_numero)]</a></dd>
+        </BOUCLE_precedent>
+        </B_precedent>
+        <dd>Aucune actualit&eacute; disponible</dd>
+        <//B_precedent>
+    </dl>
+    
+    <dl class="grille3 colonne droite">
+        <dt>#GET{suivant}</dt>
+        <BOUCLE_suivant(ARTICLES){id_rubrique}{age_relatif<0}{par date}{0,1}>
+        <dd><a href="#URL_ARTICLE" rel="next">[(#TITRE|supprimer_numero)]</a></dd>
+        </BOUCLE_suivant>
+        </B_suivant>
+        <dd>Aucune actualit&eacute; disponible</dd>
+        <//B_suivant>
+    </dl>
+</div>
+</BOUCLE_article>

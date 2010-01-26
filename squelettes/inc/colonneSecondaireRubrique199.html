@@ -1,0 +1,76 @@
+<div class="grille6 clearfix">
+    <dl id="triActu">
+        <dt>Tri des actualités</dt>
+        <dd class="clearfix">
+            <span>par cat&eacute;gorie</span>
+            <B_categories>
+            <ul>
+                <BOUCLE_categories(MOTS){id_groupe=23}{par titre}>
+                <BOUCLE_articles_categories(ARTICLES){id_mot}{id_rubrique}{doublons categories}>
+                <BOUCLE_mot(MOTS){id_article}{id_mot}{unique}>
+                [<li><a href="[(#SELF|parametre_url{'tri','mot'}|parametre_url{'mot',#ID_MOT})]">(#TITRE|supprimer_numero)</a></li>]
+                </BOUCLE_mot>
+                </BOUCLE_articles_categories>
+                </BOUCLE_categories>
+            </ul>
+            </B_categories>
+        </dd>
+        <dd class="clearfix">
+            <form action="#SELF" method="get" accept-charset="utf-8">
+                <input type="hidden" name="tri" value="date">
+                <label for="date">par date</label>
+                <select name="date" onchange="this.form.submit();">
+                    <option value="">S&eacute;lectionnez&hellip;</option>
+                    <BOUCLE_articles_date(ARTICLES){id_rubrique}{!par date}>
+                    [<option value="[(#DATE|affdate{Y-m})]">(#DATE|affdate_mois_annee|unique)</option>]
+                    </BOUCLE_articles_date>
+                </select>
+                <p><input type="submit" value="&rarr;"></p>
+            </form>
+        </dd>
+        <dd class="clearfix">
+            <form action="#SELF" method="get" accept-charset="utf-8">
+                <input type="hidden" name="tri" value="mot">
+                <label for="mot">par mot-cl&eacute;</label>
+                <select name="mot" onchange="this.form.submit();">
+                    <option value="">S&eacute;lectionnez&hellip;</option>
+                    <BOUCLE_mots(MOTS){par titre}>
+                    <BOUCLE_articles_mot(ARTICLES){id_mot}{id_rubrique}>
+                    <BOUCLE_mot_titre(MOTS){id_article}{id_mot}{doublons mots}>
+                    [<option value="#ID_MOT">(#TITRE|couper{20})</option>]
+                    </BOUCLE_mot_titre>
+                    </BOUCLE_articles_mot>
+                    </BOUCLE_mots>
+                </select>
+                <p><input type="submit" value="&rarr;"></p>
+            </form>
+        </dd>
+    </dl>
+</div>
+
+<div class="grille3 colonne gauche">
+    <B_evenements>
+    <dl id="agenda">
+        <dt>Prochains rendez-vous</dt>
+        <BOUCLE_evenements(EVENEMENTS){id_rubrique}>
+        <dd>[(#DATE_DEBUT|affdate)][ <a href="#URL_ARTICLE">(#TITRE|supprimer_numero)</a>]</dd>
+        </BOUCLE_evenements>
+    </dl>
+    </B_evenements>
+    
+    [(#INCLURE{fond=inc/infosLivre}{largeur_image=160})]
+    
+    
+</div><!-- fin div csGauche -->
+
+<div class="grille3 colonne droite">
+    
+    [(#INCLURE{fond=inc/articleSoutien}{id_secteur})]
+    
+    [(#REM) page contact]
+    [(#INCLURE{fond=inc/contact})]
+
+    [(#REM) lettre d'infos ]
+    [(#INCLURE{fond=inc/lettreInfos})]
+    
+</div><!-- fin div dsDroite -->

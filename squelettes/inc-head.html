@@ -1,0 +1,53 @@
+#CACHE{0}
+
+[(#REM)
+	Head standard de toutes les pages ; les elements specifiques
+	(title, description) figurent dans le squelette article.html
+]
+
+[(#REM) Preciser le charset ]
+<meta http-equiv="Content-Type" content="text/html; charset=#CHARSET" />
+
+[(#REM) Fierement fabrique avec SPIP ]
+<meta name="generator" content="SPIP[ (#SPIP_VERSION)]" />
+
+[(#REM) Lien vers l'icone destinee a la barre de bookmarks, au format .ico ]
+[<link rel="shortcut icon" href="(#CHEMIN{favicon.ico})" type="image/x-icon" />]
+
+[(#REM) Lien vers l'icone destinee a la barre de bookmarks, au format png ]
+[<link rel="icon" href="(#CHEMIN{favicon.png})" type="image/png" />]
+
+[(#REM) Lien vers le flux RSS du site ]
+[<link rel="alternate" type="application/rss+xml" title="<:syndiquer_site:>" href="(#URL_PAGE{backend})" />]
+
+[(#REM) Feuille de style de reset ]
+[<link rel="stylesheet" href="(#CHEMIN{css/reset.css}|direction_css)" type="text/css" media="screen" />]
+
+[(#REM) Feuille de style écran du site ]
+[<link rel="stylesheet" href="(#CHEMIN{css/structure.css}|direction_css)" type="text/css" media="screen" />]
+[<link rel="stylesheet" href="(#CHEMIN{css/ecran.css}|direction_css)" type="text/css" media="screen" />]
+
+[<link rel="stylesheet" href="(#CHEMIN{js/shadowbox/skin/classic/skin.css})" type="text/css" media="screen" title="styles shadowbox" charset="utf-8">]
+
+<!--[if lte IE 6]>[<link rel="stylesheet" href="(#CHEMIN{css/ie6.css})" type="text/css" media="screen" />]<![endif]-->
+<!--[if gte IE 7]>[<link rel="stylesheet" href="(#CHEMIN{css/ie7.css})" type="text/css" media="screen" />]<![endif]-->
+
+[(#REM) Feuille de style CSS pour l'impression ]
+
+
+[(#REM) Balise permettant aux plugins d'inserer des appels javascript ou css ;
+	C'est ici que SPIP va inserer l'appel de la librairie jQuery
+	Et appeler a la fin compacte_head pour agreger et compacter tout le head dans des fichiers statiques
+	si l'option est cochee dans Configuration
+]
+#INSERT_HEAD
+
+[(#REM) jquery ui]
+[<link type="text/css" href="(#CHEMIN{js/jquery-ui-1.6.custom/css/custom-theme/ui.all.css})" rel="stylesheet" />]
+[<script type="text/javascript" src="(#CHEMIN{js/jquery-ui-1.6.custom/js/jquery-ui-1.6.custom.min.js})"></script>]
+
+[(#REM) shadowbox ]
+[<script type="text/javascript" src="(#CHEMIN{js/shadowbox-2.0/shadowbox-2.0.js})"></script>]
+
+[<script src="(#CHEMIN{js/configuration.js})" type="text/javascript" charset="utf-8"></script>]
+

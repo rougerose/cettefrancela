@@ -1,0 +1,7 @@
+<B_sousrubriques>
+<ul id="sousrubriques">
+    <BOUCLE_sousrubriques(RUBRIQUES){id_parent}{par num titre, titre}>
+    <li[ (#ENV{rubrique}|=={#ID_RUBRIQUE}|?{'class="on"'})]>[<a href="#URL_RUBRIQUE">(#TITRE|supprimer_numero)</a>]</li>
+    </BOUCLE_sousrubriques>
+</ul>
+</B_sousrubriques>

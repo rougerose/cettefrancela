@@ -1,0 +1,18 @@
+[(#REM) contenu rubrique 195 ou 197 - Chapitres Récits 1 ou Récits 2 ]
+<B_articles>
+[(#ANCRE_PAGINATION)]
+[(#PAGINATION{cfl})]
+<div class="section grille12 clearfix">
+<BOUCLE_articles(ARTICLES){id_rubrique}{par num titre}{pagination}>
+    <div class="vignettes grille6 colonne [numero(#COMPTEUR_BOUCLE|alterner{1,2})]">
+        <h2>[<a href="#URL_ARTICLE">(#TITRE|supprimer_numero)</a>]</h2>
+        [<p class="descriptif">
+            [(#LOGO_ARTICLE||image_reduire{160,0}|inserer_attribut{"alt",[(#TITRE|supprimer_numero)]})]
+            (#DESCRIPTIF|sinon{#INTRODUCTION})
+             <a href="#URL_ARTICLE" class="suite">suite</a>
+        </p>]
+    </div>
+</BOUCLE_articles>
+</div>
+[(#PAGINATION{cfl})]
+</B_articles>

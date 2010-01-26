@@ -1,0 +1,15 @@
+<B_breves>
+<div class="resultats">
+    #ANCRE_PAGINATON
+    <h2>[(#GRAND_TOTAL) ][(#GRAND_TOTAL|>{1}|?{'br&egrave;ves','br&egrave;ve'})]</h2>
+    [(#PAGINATION{cfl})]
+    <dl>
+        <BOUCLE_breves(BREVES){id_mot}{!par date}{pagination 5}>
+        <dt>[(#COMPTEUR_BOUCLE). ]<a href="#URL_BREVE">[(#TITRE|supprimer_numero)]</a></dt>
+        [<dd class="extrait">(#DESCRIPTIF)</dd>]
+        [<dd class="url"><p><a href="#URL_BREVE">(#URL_BREVE|url_absolue)</a></p></dd>]
+        </BOUCLE_breves>
+    </dl>
+    [(#PAGINATION{cfl_bas})]
+</div>
+</B_breves>

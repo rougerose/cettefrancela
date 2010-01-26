@@ -1,0 +1,28 @@
+<B_intro>[(#REM) rubrique Volume 1 ? affichage intro du livre ]
+<div class="section grille12 rubrique#ID_RUBRIQUE clearfix">
+    <BOUCLE_intro(ARTICLES){id_rubrique}{id_rubrique=194}{titre=01. introduction}>
+    <div class="principal grille12">
+        <h2>[<a href="#URL_ARTICLE">(#TITRE|supprimer_numero)</a>]</h2>
+        [<p class="soustitre">(#SOUSTITRE)</p>]
+        [<p class="descriptif">(#DESCRIPTIF|sinon{#INTRODUCTION}) <a href="#URL_ARTICLE" class="suite">suite</a></p>]
+    </div>
+    </BOUCLE_intro>
+</div>
+</B_intro>
+
+[(#INCLURE{fond=inc/corpsRubrique195}{id_rubrique}{ajax}{env})]
+[(#INCLURE{fond=inc/corpsRubrique196}{id_rubrique}{ajax}{env})]
+[(#INCLURE{fond=inc/corpsRubrique197}{id_rubrique}{ajax}{env})]
+[(#INCLURE{fond=inc/corpsRubrique198}{id_rubrique}{ajax}{env})]
+
+<B_annexes>[(#REM) rubrique Volume 1 ? affichage annexes du livre ]
+<div class="section grille12 rubrique#ID_RUBRIQUE clearfix">
+    <BOUCLE_annexes(ARTICLES){id_rubrique}{id_rubrique=194}{titre=03. annexes}>
+    <div class="principal grille12">
+        <h2>[<a href="#URL_ARTICLE">(#TITRE|supprimer_numero)</a>]</h2>
+        [<p class="soustitre">(#SOUSTITRE)</p>]
+        [<p class="descriptif">(#DESCRIPTIF||PtoBR|sinon{#INTRODUCTION}) <a href="#URL_ARTICLE" class="suite">suite</a></p>]
+    </div>
+    </BOUCLE_annexes>
+</div>
+</B_annexes>

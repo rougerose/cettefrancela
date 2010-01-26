@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="#CHARSET"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG">
+<head>
+	<title>[(#NOM_SITE_SPIP|textebrut)]/ Recherche</title>
+    
+    <INCLURE{fond=inc-head}>
+    
+</head>
+
+<body id="recherche">
+    <div id="enveloppe">
+        <div id="entete">
+            <div id="logo">
+                [(#INCLURE{fond=inc/logoSite})]
+            </div>
+            
+            [(#INCLURE{fond=inc/baseline})]
+            
+            [(#INCLURE{fond=inc/menuPrincipal}{skel=#SQUELETTE}{id_rubrique}{rubrique=#ENV{id_rubrique}})]
+            
+            #FORMULAIRE_RECHERCHE
+            
+        </div><!-- fin div entete -->
+        
+        <div id="corps" class="clearfix">
+            
+            <div id="contenu">
+                <div id="titre">
+                    <h1>recherche&nbsp;: #RECHERCHE</h1>
+                </div>
+
+                [(#INCLURE{fond=inc/rechercheArticles}{ajax}{env})]
+                [(#INCLURE{fond=inc/rechercheBreves}{ajax}{env})]
+                [(#INCLURE{fond=inc/rechercheRubriques}{ajax}{env})]
+                [(#INCLURE{fond=inc/rechercheDocuments}{ajax}{env})]
+                [(#INCLURE{fond=inc/rechercheMots}{ajax}{env})]
+
+                [(#REM) tests si pas de résultats ]
+                <B_art><BOUCLE_art(ARTICLES){recherche}> </BOUCLE_art>
+                </B_art>
+                <B_rub><BOUCLE_rub(RUBRIQUES){recherche}> </BOUCLE_rub>
+                </B_rub>
+                <B_mots><BOUCLE_mots(MOTS){recherche}> </BOUCLE_mots>
+                </B_mots>
+                <B_breves><BOUCLE_breves(BREVES){recherche}> </BOUCLE_breves>
+                </B_breves>
+                <B_doc><BOUCLE_doc(DOCUMENTS){recherche}> </BOUCLE_doc>
+                </B_doc>
+                <p class="rechercheMessage"><strong>Aucun r&eacute;sultat</strong>.</p>
+                <//B_doc><//B_breves><//B_mots><//B_rub><//B_art>
+                
+                
+            </div><!-- fin contenu -->
+            
+            <div id="colonneSecondaire" class="colonne">
+                
+                [(#REM) page contact]
+                [(#INCLURE{fond=inc/contact})]
+                
+                [(#REM) lettre d'infos ]
+                [(#INCLURE{fond=inc/lettreInfos})]
+
+            </div><!-- fin colonneSecondaire -->
+            
+        </div><!-- fin div corps -->
+        
+        <div id="piedPage">
+            
+            <hr class="invisible" />
+            <ul id="filAriane">
+                <li><a href="#URL_SITE_SPIP" rel="home">Accueil</a></li>
+                <li class="on">Recherche</li>
+            </ul>
+            
+            [(#INCLURE{fond=inc/navigationPlan})]
+            [(#INCLURE{fond=inc/piedPageLogo})]
+            
+        </div><!-- fin div pied de page -->
+        
+    </div><!-- fin div enveloppe -->
+</body>
+</html>

@@ -1,0 +1,13 @@
+<BOUCLE_presentation(ARTICLES){id_rubrique}{titre_mot=article à propos association}{doublons}>
+<h2>[<a href="#URL_ARTICLE">(#TITRE|supprimer_numero)</a>]</h2>
+[<p>(#DESCRIPTIF|sinon{#INTRODUCTION}|PtoBR) <a href="#URL_ARTICLE" class="suite">suite</a></p>]
+</BOUCLE_presentation>
+
+<BOUCLE_rubrique_affiches(RUBRIQUES){id_parent}{par num titre}>
+<h2 class="affiches">[<a href="#URL_RUBRIQUE">(#TITRE)</a>]</h2>
+[<p>(#DESCRIPTIF|PtoBR) <a href="#URL_RUBRIQUE" class="suite">suite</a></p>]
+
+<div id="affichesBloc" class="ajax clearfix">
+    [(#INCLURE{fond=inc/affiches}{id_rubrique}{ajax}{env})]
+</div>
+</BOUCLE_rubrique_affiches>

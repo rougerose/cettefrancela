@@ -1,0 +1,24 @@
+[(#REM) contenu rubrique 196 - Chapitre Descriptions, ou rubrique 198 - Chapitre Interrogations ]
+<B_articles>
+[(#ANCRE_PAGINATION)]
+[(#PAGINATION{cfl})]
+<BOUCLE_articles(ARTICLES){id_rubrique}{titre_mot=texte principal}{par num titre}{pagination}{doublons}>
+<div class="section clearfix">
+    <div class="principal grille12">
+        <h2>[<a href="#URL_ARTICLE">(#TITRE|supprimer_numero)</a>]</h2>
+        [<p class="soustitre">(#SOUSTITRE)</p>]
+        [<p class="descriptif">(#DESCRIPTIF|sinon{#INTRODUCTION}) <a href="#URL_ARTICLE" class="suite">suite</a></p>]
+    </div>
+    
+    <BOUCLE_regroupement(MOTS){id_article}{id_groupe=20}>
+    <BOUCLE_vignettes(ARTICLES){id_mot}{id_rubrique}{par num titre}{doublons}>
+    <div class="vignettes grille6 colonne [numero(#COMPTEUR_BOUCLE|alterner{1,2})]">
+        <h3 class="titreVignette">[<a href="#URL_ARTICLE">(#TITRE|supprimer_numero)</a>]</h3>
+        [<p class="soustitre">(#SOUSTITRE)</p>]
+        [<p class="descriptif">(#DESCRIPTIF|sinon{#INTRODUCTION}|couper{150}) <a href="#URL_ARTICLE" class="suite">suite</a></p>]
+    </div>
+    </BOUCLE_vignettes>
+    </BOUCLE_regroupement>
+</div>
+</BOUCLE_articles>
+</B_articles>

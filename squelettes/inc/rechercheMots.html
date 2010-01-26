@@ -1,0 +1,15 @@
+<B_mots>
+<div class="resultats">
+    #ANCRE_PAGINATON
+    <h2>[(#GRAND_TOTAL) ][(#GRAND_TOTAL|>{1}|?{'mots-cl&eacute;s','mot-cl&eacute;'})]</h2>
+    [(#PAGINATION{cfl})]
+    <dl>
+        <BOUCLE_mots(MOTS){recherche}{!par points}{id_groupe!==[17,18,19]}{pagination}>
+        <dt>[(#COMPTEUR_BOUCLE). ]<a href="#URL_MOT">[(#TITRE|supprimer_numero)]</a></dt>
+        [<dd class="extrait">(#EXTRAIT|paragrapher)</dd>]
+        [<dd class="url"><p><a href="#URL_MOT">(#URL_MOT|url_absolue)</a></p></dd>]
+        </BOUCLE_mots>
+    </dl>
+    [(#PAGINATION{cfl_bas})]
+</div>
+</B_mots>

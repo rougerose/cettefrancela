@@ -1,0 +1,13 @@
+<BOUCLE_rubrique_affiches(RUBRIQUES){id_rubrique}>
+[<p>(#DESCRIPTIF|PtoBR)</p>]
+
+<div id="affichesBloc" class="vueComplete clearfix">
+    <BOUCLE_affiches(ARTICLES){id_rubrique}{par num titre}>
+    <dl class="affiches">
+         <dt>[<a href="#URL_ARTICLE">(#TITRE|supprimer_numero)</a>]</dt>
+         <dd class="logo">[<a href="#URL_ARTICLE">(#LOGO_ARTICLE||image_reduire{220,0}|inserer_attribut{"alt",[(#TITRE|supprimer_numero)]})</a>]</dd>
+         <dd>[(#DESCRIPTIF|sinon{#INTRODUCTION}|PtoBR) <a href="#URL_ARTICLE" class="suite">suite</a>]</dd>
+    </dl>
+    </BOUCLE_affiches>
+</div>
+</BOUCLE_rubrique_affiches>

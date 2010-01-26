@@ -1,0 +1,8 @@
+<B_presentation>
+<dl>
+    <BOUCLE_presentation(ARTICLES){titre_mot=article à propos association}>
+    <dt>[(#TITRE|supprimer_numero)]</dt>
+    [<dd class="descriptif">(#DESCRIPTIF|sinon{#INTRODUCTION}|PtoBR) <a href="#URL_ARTICLE" class="suite">suite</a></dd>]
+    </BOUCLE_presentation>
+</dl>
+</B_presentation>

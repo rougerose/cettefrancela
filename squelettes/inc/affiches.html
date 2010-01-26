@@ -1,0 +1,11 @@
+<B_affiches>
+[(#ANCRE_PAGINATION)]
+[(#PAGINATION{affiches})]
+<BOUCLE_affiches(ARTICLES){id_rubrique}{par num titre}{pagination 1}>
+<dl class="affiches">
+     <dt>[<a href="#URL_ARTICLE">(#TITRE|supprimer_numero)</a>]</dt>
+     <dd class="logo">[<a href="#URL_ARTICLE">(#LOGO_ARTICLE||image_reduire{220,0}|inserer_attribut{"alt",[(#TITRE|supprimer_numero)]})</a>]</dd>
+     <dd>[(#DESCRIPTIF|sinon{#INTRODUCTION}|PtoBR) <a href="#URL_ARTICLE" class="suite">suite</a>]</dd>
+</dl>
+</BOUCLE_affiches>
+</B_affiches>

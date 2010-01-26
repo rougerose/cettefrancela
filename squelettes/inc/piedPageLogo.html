@@ -1,0 +1,9 @@
+<div id="piedPageLogo" class="grille16">
+    <div>[<a href="www.spip.net" title="R&eacute;alis&eacute; avec Spip"><img src="(#CHEMIN{images/spip-2-ban.png})" width="48" height="16" alt="Spip" /></a> ]<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/2.0/fr/" title="Sauf mention contraire, le contenu de cette page est plac&eacute; sous contrat Creative Commons"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-nd/2.0/fr/80x15.png" width="80" height="15" /></a></div>
+    <BOUCLE_presentation(ARTICLES){titre_mot=article à propos association}{0,1}>
+    [<a href="#URL_ARTICLE#sommaire_0"><img src="(#CHEMIN{images/Cette_France-La_logo_petit.png})" width="188" height="23" alt="Cette France-l&agrave;" /></a>]
+    </BOUCLE_presentation>
+    [(#REM) Cette balise permet de deporter les calculs lourds (indexation etc)
+    dans une image cachee, ce qui evite de ralentir l'affichage des pages.]
+    #SPIP_CRON
+</div>

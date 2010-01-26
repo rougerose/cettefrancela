@@ -1,0 +1,115 @@
+<BOUCLE_p(RUBRIQUES){id_rubrique}>
+<?xml version="1.0" encoding="#CHARSET"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG">
+<head>
+	<title>[(#NOM_SITE_SPIP|textebrut)][ / (#TITRE|supprimer_numero|textebrut)]</title>
+	[<meta name="description" content="(#DESCRIPTIF|sinon{#INTRODUCTION}|couper{200}|textebrut)" />]
+    
+    <INCLURE{fond=inc-head}>
+    
+    
+    
+</head>
+
+<body id="rubrique">
+    <div id="enveloppe">
+        <div id="entete">
+            <div id="logo">
+                [(#INCLURE{fond=inc/logoSite})]
+            </div>
+            
+            [(#INCLURE{fond=inc/baseline})]
+            
+            [(#INCLURE{fond=inc/menuPrincipal}{skel=#SQUELETTE}{id_rubrique}{rubrique=#ENV{id_rubrique}})]
+            
+            #FORMULAIRE_RECHERCHE
+            
+        </div><!-- fin div entete -->
+        
+        <div id="corps" class="secteur#ID_SECTEUR rubrique#ID_RUBRIQUE clearfix">
+            <div id="contenu">
+                <h1>[(#TITRE|supprimer_numero)]</h1>
+                [(#REM) rubrique 194 - chapitre volume 1]
+                [(#ID_RUBRIQUE|=={194}|?{' '})
+                    [(#INCLURE{fond=inc/corpsRubrique194}{env})]
+                ]
+                
+                [(#REM) rubrique Actualites ]
+                [(#ID_SECTEUR|=={199}|oui)
+                    [(#INCLURE{fond=inc/corpsRubrique199}{id_rubrique}{env})]
+                ]
+                
+                [(#REM) rubrique A propos ]
+                [(#ID_RUBRIQUE|=={193}|oui)
+                    [(#INCLURE{fond=inc/corpsRubrique193}{id_rubrique}{doublons})]
+                ]
+                
+                [(#REM) rubrique Affiches ]
+                [(#ID_RUBRIQUE|=={203}|oui)
+                    [(#INCLURE{fond=inc/corpsRubrique203}{id_rubrique})]
+                ]
+                
+                [(#REM) on est dans la rubrique 195 ou 197 - chapitre Recits 1 ou 2 ? ]        
+                [(#ID_RUBRIQUE|in_array{#ARRAY{0,195,1,197}}|?{' ',''})
+                    [(#INCLURE{fond=inc/corpsRubrique_195_197}{id_rubrique}{env}{ajax})]
+                ]
+                
+                [(#REM) on est dans la rubrique 196 ou 198 -  chapitre Descriptions ou Interrogations ? ]
+                [(#ID_RUBRIQUE|in_array{#ARRAY{0,196,1,198}}|?{' ',''})
+                    [(#INCLURE{fond=inc/corpsRubrique_196_198}{id_rubrique}{env}{ajax})]
+                ]
+            </div>
+            <div id="colonneSecondaire" class="colonne">
+                
+                [(#REM) test rubrique Actualites : on passe sur deux colonnes ]
+                [(#ID_RUBRIQUE|=={199}|oui)
+                    [(#INCLURE{fond=inc/colonneSecondaireRubrique199}{id_secteur}{env})]
+                ]
+                
+                [(#REM) test rubrique autre que Actualites : on passe sur une colonne ]
+                [(#ID_RUBRIQUE|=={199}|non)
+                    [(#ID_SECTEUR|=={194}|oui)
+                    [(#INCLURE{fond=inc/infosLivre}{largeur_image=220})]
+                    ]
+                    
+                    [(#REM) test rubrique A propos ? ]
+                    [(#ID_RUBRIQUE|=={203}|oui)
+                        [(#INCLURE{fond=inc/articleAPropos})]
+                    ]
+                    
+                    [(#INCLURE{fond=inc/articleSoutien}{id_secteur})]
+                    
+                    [(#REM) page contact]
+                    [(#INCLURE{fond=inc/contact})]
+
+                    [(#REM) lettre d'infos ]
+                    [(#INCLURE{fond=inc/lettreInfos})]
+                    
+                ]
+            </div><!-- fin colonneSecondaire -->
+
+        </div><!-- fin div corps -->
+        
+        <div id="piedPage">
+            
+            <hr class="invisible" />
+            <ul id="filAriane">
+                <li><a href="#URL_SITE_SPIP" rel="home">Accueil</a></li>
+                <BOUCLE_hierarchie(HIERARCHIE){id_rubrique}>
+                <li><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></li>
+                </BOUCLE_hierarchie>
+                <li class="on">[(#TITRE|supprimer_numero)]</li>
+            </ul>
+            
+            [(#INCLURE{fond=inc/navigationPlan})]
+            [(#INCLURE{fond=inc/piedPageLogo})]
+            
+        </div><!-- fin div pied de page -->
+        
+    </div><!-- fin div enveloppe -->
+</body>
+</html>
+</BOUCLE_p>

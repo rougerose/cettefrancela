@@ -1,0 +1,16 @@
+<B_documents>
+<div class="resultats">
+    #ANCRE_PAGINATION
+    <h2>[(#GRAND_TOTAL)[ (#GRAND_TOTAL|>{1}|?{'documents','document'})]]</h2>
+    [(#PAGINATION{cfl})]
+    <dl>
+        <BOUCLE_documents(DOCUMENTS){recherche}{!par points}{pagination 5}>
+        <dt>[(#COMPTEUR_BOUCLE). ]<a href="#URL_DOCUMENT" type="#MIME_TYPE">[(#TITRE|supprimer_numero|sinon{document #ID_DOCUMENT})]</a></dt>
+        [<dd class="extrait">(#EXTRAIT|paragrapher|lignes_longues)</dd>]
+        <dd class="document"><p>document[ (#TYPE_DOCUMENT)][, (#TAILLE|taille_en_octets).]</p></dd>
+        <dd class="url"><p><a href="[(#URL_DOCUMENT)]" type="#MIME_TYPE">[(#URL_DOCUMENT|url_absolue|lignes_longues)]</a></p></dd>
+        </BOUCLE_documents>
+    </dl>
+    [(#PAGINATION{cfl_bas})]
+</div>
+</B_documents>

@@ -1,0 +1,10 @@
+[(#ENV{tri}|?{
+    [(#ENV{tri}|=={'mot'}|?{
+        [(#INCLURE{fond=inc/actusTriMot}{env})]
+        ,
+        [(#INCLURE{fond=inc/actusTriDefaut}{env})]
+    })]
+    ,
+    [(#INCLURE{fond=inc/actus}{env})]
+})]
+

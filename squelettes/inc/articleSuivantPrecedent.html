@@ -1,0 +1,26 @@
+#SET{precedent,Article pr&eacute;c&eacute;dent}
+#SET{suivant,Article suivant}
+#SET{aucun,Aucun article disponible}
+
+<div id="SuivantPrecedent" class="clearfix">
+    <dl class="grille3 colonne gauche">
+        <dt>#GET{precedent}</dt>
+        <B_precedent>
+        <BOUCLE_precedent(ARTICLES){id_rubrique}{id_rubrique=198}{id_mot=203}{titre<=#ENV{titre_article}}{par titre}{0,1}{inverse}{exclus}>
+        <dd><a href="#URL_ARTICLE" rel="prev">[(#TITRE|supprimer_numero)]</a></dd>
+        </BOUCLE_precedent>
+        </B_precedent>
+        <dd>#GET{aucun}</dd>
+        <//B_precedent>
+    </dl>
+    
+    <dl class="grille3 colonne droite">
+        <dt>#GET{suivant}</dt>
+        <BOUCLE_suivant(ARTICLES){id_rubrique}{id_rubrique=198}{id_mot=203}{titre>#ENV{titre_article}}{exclus}{par titre}{0,1}>
+        <dd><a href="#URL_ARTICLE" rel="next">[(#TITRE|supprimer_numero)]</a></dd>
+        </BOUCLE_suivant>
+        </B_suivant>
+        <dd>#GET{aucun}</dd>
+        <//B_suivant>
+    </dl>
+</div>

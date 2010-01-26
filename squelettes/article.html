@@ -1,0 +1,143 @@
+<BOUCLE_p(ARTICLES){id_article}>
+<?xml version="1.0" encoding="#CHARSET"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG">
+<head>
+	<title>[(#NOM_SITE_SPIP|textebrut)][ / (#TITRE|supprimer_numero|textebrut)]</title>
+	[<meta name="description" content="(#DESCRIPTIF|sinon{#INTRODUCTION}|couper{200}|textebrut)" />]
+    
+    <INCLURE{fond=inc-head}>
+    
+</head>
+
+<body id="article" class="interieur">
+    <div id="enveloppe">
+        <div id="entete">
+            <div id="logo">
+                [(#INCLURE{fond=inc/logoSite})]
+            </div>
+            
+            [(#INCLURE{fond=inc/baseline})]
+            
+            [(#INCLURE{fond=inc/menuPrincipal}{skel=#SQUELETTE}{id_rubrique}{rubrique=#ENV{id_rubrique}})]
+            
+            #FORMULAIRE_RECHERCHE
+            
+        </div><!-- fin div entete -->
+        
+        <div id="corps" class="clearfix">
+            
+            <div id="titre" class="grille14">
+                [<p class="surtitre">(#SURTITRE)</p>]
+                <h1>[(#TITRE|supprimer_numero)]</h1>
+                [<p class="soustitre">(#SOUSTITRE)</p>]
+                [(#ID_RUBRIQUE|=={199}|oui)
+                    <p class="date">[publi&eacute; le <strong>(#DATE|jour)[ (#DATE|nom_mois)]</strong>[ (#DATE|annee)]]</p>
+                ]
+            </div>
+            <div id="corpsArticle">
+                [(#INCLURE{fond=inc/corpsArticle}{ajax}{env}{artpage}{cs})]
+                
+                <BOUCLE_contact(MOTS){id_article}{titre=contact}>
+                [<div id="contact" class="ajax colonne">
+                    (#FORMULAIRE_ECRIRE_AUTEUR)
+                </div>]
+                </BOUCLE_contact>
+            </div>
+            <div id="colonneSecondaire" class="grille6 colonne">
+                <BOUCLE_titre_rubrique(RUBRIQUES){id_rubrique}>
+                [(#ID_RUBRIQUE|in_array{#ARRAY{0,195,1,197,2,203}}|oui)
+                    [(#REM) rubrique Volume 1 > Recits 1 ou 2 ; ou Campagne Cette france-la vous l'aimez? ? ]
+                    [(#INCLURE{fond=inc/suivantPrecedent}{id_article}{id_rubrique}{titre_article=#_p:TITRE})]
+                ]
+                [(#ID_RUBRIQUE|=={199}|oui)
+                    [(#INCLURE{fond=inc/actusSuivantPrecedent}{env})]
+                ]
+                [(#ID_RUBRIQUE|=={198}|oui)
+                    [(#INCLURE{fond=inc/articleSuivantPrecedent}{id_article}{id_rubrique}{titre_article=#_p:TITRE})]
+                ]
+                </BOUCLE_titre_rubrique>
+                
+                <BOUCLE_exclusion_mots_techniques(MOTS){id_groupe==^(17|18|19|20)$}{doublons}>
+                </BOUCLE_exclusion_mots_techniques>
+                
+                <div class="grille3 colonne gauche">
+                    [(#CS_SOMMAIRE)]
+
+                    <B_mots>
+                    <dl id="mots">
+                        <dt>Mots-clés</dt>
+                        <BOUCLE_mots(MOTS){id_article}{par titre}{doublons}>
+                        <dd><a href="#URL_MOT" rel="tag">[(#TITRE|supprimer_numero)]</a></dd>
+                        </BOUCLE_mots>
+                    </dl>
+                    </B_mots>
+                    
+                    <B_documents>
+                    <dl id="documents">
+                        <dt>Documents</dt>
+                        <BOUCLE_documents(DOCUMENTS){id_article}{mode=document}{doublons}>
+                        [<dt class="titre">(#TITRE|supprimer_numero|sinon{document #ID_DOCUMENT})</dt>]
+                        [(#ID_VIGNETTE|!=={0}|?{
+                            [<dd class="logo"><a href="#URL_DOCUMENT" type="#MIME_TYPE"[ (#EXTENSION|in_array{#ARRAY{0,jpg,1,gif,2,png,3,swf,4,mov,5,flv}}|oui)rel="shadowbox;height=#HAUTEUR;width=#LARGEUR"]>(#LOGO_DOCUMENT||image_recadre{52,52,center}|inserer_attribut{alt,[(#TITRE|supprimer_numero|sinon{document #ID_DOCUMENT})]})</a></dd>]
+                            ,
+                            [<dd class="logo"><a href="#URL_DOCUMENT" type="#MIME_TYPE">(#LOGO_DOCUMENT||inserer_attribut{alt,[(#TITRE|supprimer_numero|sinon{document #ID_DOCUMENT})]})</a></dd>]
+                        })]
+                        <dd class="descriptif clearfix">[(#DESCRIPTIF|PtoBR)] [[(#TYPE_DOCUMENT)][ - (#TAILLE|taille_en_octets)]]</dd>
+                        </BOUCLE_documents>
+                    </dl>
+                    </B_documents>
+                    &nbsp;
+                    <//B_documents>
+                    
+                </div><!-- fin div csGauche -->
+                
+                <div class="grille3 colonne droite">
+                    <BOUCLE_egalement(MOTS){id_article}{id_groupe=20}>
+                    <B_lire_aussi>
+                    <dl>
+                        <dt>Lire &eacute;galement</dt>
+                        <BOUCLE_lire_aussi(ARTICLES){id_mot}{par num titre}{exclus}>
+                        [<dd><a href="#URL_ARTICLE">(#TITRE|supprimer_numero)</a></dd>]
+                        </BOUCLE_lire_aussi>
+                    </dl>
+                    </B_lire_aussi>
+                    </BOUCLE_egalement>
+                    
+                    [(#REM) page contact]
+                    [(#INCLURE{fond=inc/contact})]
+
+                    [(#REM) lettre d'infos ]
+                    [(#INCLURE{fond=inc/lettreInfos})]
+                    
+                    [(#INCLURE{fond=inc/infosLivre}{largeur_image=160})]
+                    
+                    
+                </div><!-- fin div dsDroite -->
+            </div><!-- fin div colonneSecondaire -->
+            
+            
+        </div><!-- fin div corps -->
+        
+        <div id="piedPage">
+            
+            <hr class="invisible" />
+            <ul id="filAriane">
+                <li><a href="#URL_SITE_SPIP" rel="home">Accueil</a></li>
+                <BOUCLE_hierarchie(HIERARCHIE){id_article}>
+                <li><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></li>
+                </BOUCLE_hierarchie>
+                <li class="on">[(#TITRE|supprimer_numero)]</li>
+            </ul>
+            
+            [(#INCLURE{fond=inc/navigationPlan})]
+            [(#INCLURE{fond=inc/piedPageLogo})]
+            
+        </div><!-- fin div pied de page -->
+        
+    </div><!-- fin div enveloppe -->
+</body>
+</html>
+</BOUCLE_p>

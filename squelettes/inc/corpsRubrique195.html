@@ -1,0 +1,21 @@
+<BOUCLE_parent(RUBRIQUES){id_parent}>
+<BOUCLE_rubrique195(RUBRIQUES){id_rubrique}{id_rubrique=195}>
+<B_recits1>
+[(#ANCRE_PAGINATION)]
+<h2  class="titreChapitre"><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)</a>]</h2>
+<div class="section grille12 rubrique#ID_RUBRIQUE clearfix">
+    [(#PAGINATION{cfl})]
+    <BOUCLE_recits1(ARTICLES){id_rubrique}{par num titre}{pagination 2}>
+        <div class="vignettes grille6 colonne [numero(#COMPTEUR_BOUCLE|alterner{1,2})]">
+            <h3>[<a href="#URL_ARTICLE">(#TITRE|supprimer_numero)</a>]</h3>
+            [<p class="descriptif">
+                [(#LOGO_ARTICLE||image_reduire{160,0}|inserer_attribut{"alt",[(#TITRE|supprimer_numero)]})]
+                (#DESCRIPTIF|sinon{#INTRODUCTION})
+                 <a href="#URL_ARTICLE" class="suite">suite</a>
+            </p>]
+        </div>
+    </BOUCLE_recits1>
+</div>
+</B_recits1>
+</BOUCLE_rubrique195>
+</BOUCLE_parent>

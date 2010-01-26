@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="#CHARSET"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG">
+<head>
+	<title>[(#NOM_SITE_SPIP|textebrut)]</title>
+	[<meta name="description" content="(#DESCRIPTIF_SITE_SPIP|couper{150}|textebrut)" />]
+    
+    <INCLURE{fond=inc-head}>
+    
+</head>
+
+<body id="accueil">
+    <div id="enveloppe">
+        <div id="entete">
+            <h1 id="logo">
+                [(#LOGO_SITE_SPIP||inserer_attribut{"alt",#NOM_SITE_SPIP}|sinon{#NOM_SITE_SPIP})]
+            </h1>
+            
+            [(#INCLURE{fond=inc/baseline})]
+            
+            [(#INCLURE{fond=inc/menuPrincipal}{skel=#SQUELETTE})]
+            
+            #FORMULAIRE_RECHERCHE
+            
+        </div><!-- fin div entete -->
+        
+        <div id="corps">
+            <B_selection>
+            <div id="livre" class="grille16 clearfix">
+                <BOUCLE_selection(ARTICLES pb_selection){par ordre}{spip_pb_selection.id_rubrique=0}{0,1}>
+                    [<p id="logoLivre"><a href="[IMG/(#LOGO_ARTICLE|fichier)]" rel="shadowbox"[ title="(#TITRE|supprimer_numero)"] class="sbImage">(#LOGO_ARTICLE||image_reduire{220,0}|inserer_attribut{"alt",[(#TITRE|supprimer_numero)]})</a></p>]
+                    <div id="resumeLivre">
+                        <h2>[<a href="#URL_ARTICLE">(#TITRE|supprimer_numero)</a>]</h2>
+                        [<p class="descriptif">
+                            (#DESCRIPTIF|sinon{#INTRODUCTION})
+                            <a href="#URL_ARTICLE" class="suite">suite</a>
+                        </p>]
+                    </div>
+                    <div id="infosLivre">
+
+                        <div id="accordion">
+                            <BOUCLE_mots_livre(MOTS){id_article}{id_groupe=18}{par num titre}>
+                            <div class="element">
+                                <h3>[<a href="#">(#TITRE|supprimer_numero)</a>]</h3>
+                                [<div class="ui-accordion-content">
+                                   (#TEXTE) 
+                                </div>]
+                            </div>
+                            </BOUCLE_mots_livre>
+                        </div>
+                    </div>
+                </BOUCLE_selection>
+            </div><!-- fin -->
+            </B_selection>
+            
+            <div id="contenuLivre" class="grille16">
+                <BOUCLE_volume1(RUBRIQUES){id_rubrique=194}>
+                <BOUCLE_contenu1(RUBRIQUES){id_parent}{par num titre}{doublons contenu}>
+                [(#COMPTEUR_BOUCLE|alterner{<div class="conteneur clearfix">,""})]
+                    
+                    <div class="grille8 colonne[ (#COMPTEUR_BOUCLE|alterner{"gauche","droite"})]">
+                        [<h2 class="titreChapitre">
+                            <a href="#URL_RUBRIQUE">(#TITRE|supprimer_numero)</a>
+                        </h2>]
+                        
+                        <BOUCLE_article1(ARTICLES){id_rubrique}{par hasard}{0,1}>
+                        [<h3 class="titreArticle">
+                            <a href="#URL_ARTICLE">(#TITRE|supprimer_numero)</a>
+                        </h3>]
+                        [<p class="soustitre">(#SOUSTITRE)</p>]
+                        [<p class="descriptif">
+                            [(#LOGO_ARTICLE||image_reduire{160,0}|inserer_attribut{"alt",[(#TITRE|supprimer_numero)]})]
+                            (#DESCRIPTIF|sinon{#INTRODUCTION})
+                            <a href="#URL_ARTICLE" class="suite">suite</a>
+                        </p>]
+                        </BOUCLE_article1>
+                    </div>
+                [(#COMPTEUR_BOUCLE|alterner{"",</div>})]
+                </BOUCLE_contenu1>
+                </BOUCLE_volume1>
+                
+            </div><!-- fin div zoneDeux -->
+            
+        </div><!-- fin div corps -->
+        
+        <div id="piedPage">
+            <hr class="invisible" />
+            <ul id="filAriane">
+                <li class="on">Accueil</li>
+            </ul>
+            
+            [(#INCLURE{fond=inc/navigationPlan})]
+            [(#INCLURE{fond=inc/piedPageLogo})]
+            
+        </div><!-- fin div pied de page -->
+        
+    </div><!-- fin div enveloppe -->
+</body>
+</html>

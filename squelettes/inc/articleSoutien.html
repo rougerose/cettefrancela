@@ -1,0 +1,10 @@
+<B_test_soutien>
+<dl>
+    <BOUCLE_test_soutien(RUBRIQUES){id_secteur}{titre_mot=article soutien association}>
+    <BOUCLE_article_soutien(ARTICLES){titre_mot=article soutien association}>
+    [<dt>(#TITRE|supprimer_numero)</dt>]
+    [<dd class="descriptif">(#DESCRIPTIF|sinon{#INTRODUCTION}|PtoBR) <a href="#URL_ARTICLE" class="suite">suite</a></dd>]
+    </BOUCLE_article_soutien>
+    </BOUCLE_test_soutien>
+</dl>
+</B_test_soutien>

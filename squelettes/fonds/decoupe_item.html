@@ -1,0 +1,10 @@
+[(#REM)
+	champs disponibles : page, artpage, title_page, derniere_page, self
+	parametre_url($self,'artpage',"{$i}-$num_pages")
+
+]
+#SET{separateur,' |&nbsp;'}
+[(#ENV*{page}|=={#ENV*{artpage}}|oui)
+[<span>(#ENV*{page})</span>]]
+[(#ENV*{page}|=={#ENV*{artpage}}|non)[ <a title="#ENV*{title_page}" href="[(#ENV*{self}|decoupe_url{#ENV*{page},#ENV*{derniere_page}})]">(#ENV*{page})</a> ]]
+[(#ENV*{page}|<{#ENV*{derniere_page}}|?{#GET{separateur},''})]

@@ -1,0 +1,20 @@
+#CACHE{3600}
+[(#REM) Deconnection ]
+
+<?php if ($auteur_session) { ?>
+
+<h1><?php echo $auteur_session['nom']; ?></h1>		
+
+
+<p>
+Vous &ecirc;tes authentifi&eacute;,<br />
+<a href='#URL_LOGOUT'>Se d&eacute;connecter</a>
+</p>
+
+#LOGIN_PUBLIC
+
+<?php } else {} ?>
+
+
+
+

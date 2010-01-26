@@ -1,0 +1,13 @@
+<hr class="invisible" />
+<ul id="filAriane">
+    <li[ (#ENV{skel}|match{squelettes\/sommaire}|?{'class="on"'})]>
+        [(#ENV{skel}|match{squelettes\/sommaire}|?{<span>,<a href="#URL_SITE_SPIP">})]Accueil[(#ENV{skel}|match{squelettes\/sommaire}|?{</span>,</a>})]
+    </li>
+    <BOUCLE_hierarchie(HIERARCHIE){id_rubrique}>
+    <li>
+        [(#ID_RUBRIQUE|=={#ENV{id_rubrique}}|?{<span>,<a href="#URL_RUBRIQUE">})][(#TITRE|supprimer_numero)][(#ID_RUBRIQUE|=={#ENV{id_rubrique}}|?{</span>,</a>})]
+    </li>
+    </BOUCLE_hierarchie>
+    <BOUCLE_rubrique>
+</ul>    
+    

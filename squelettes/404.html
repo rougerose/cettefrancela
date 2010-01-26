@@ -1,0 +1,85 @@
+#HTTP_HEADER{"HTTP/1.0 404 Not Found"}
+#HTTP_HEADER{"Cache-Control: no-store, no-cache, must-revalidate"}
+#HTTP_HEADER{Pragma: no-cache}
+
+<?xml version="1.0" encoding="#CHARSET"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG">
+<head>
+	<title>[(#NOM_SITE_SPIP|textebrut)] / <:pass_erreur:> 404</title>
+    
+    <INCLURE{fond=inc-head}>
+    
+</head>
+
+<body id="article" class="interieur">
+    [(#REM) <button id="toggle">grille</button>]
+    <div id="enveloppe">
+        <div id="entete">
+            <div id="logo">
+                [(#INCLURE{fond=inc/logoSite})]
+            </div>
+            
+            [(#INCLURE{fond=inc/baseline})]
+            
+            [(#INCLURE{fond=inc/menuPrincipal}{skel=#SQUELETTE}{id_rubrique}{rubrique=#ENV{id_rubrique}})]
+            
+            #FORMULAIRE_RECHERCHE
+            
+        </div><!-- fin div entete -->
+        
+        <div id="corps" class="clearfix">
+            
+            <div id="titre" class="grille14">
+                <h1><:pass_erreur:> 404</h1>
+                
+            </div>
+            <div id="texte" class="grille10 colonne">
+                
+
+                [<p>(#ENV*{erreur}|propre|sinon{"La page que vous avez demand&eacute;e n&#x27;est pas disponible."})</p>]
+
+            </div>
+            
+            
+            <div id="colonneSecondaire" class="grille6 colonne clearfix">
+                
+                <div class="grille3 colonne gauche">
+                    &nbsp;
+                </div><!-- fin div csGauche -->
+                
+                <div class="grille3 colonne droite">
+                    
+                    [(#REM) page contact]
+                    [(#INCLURE{fond=inc/contact})]
+
+                    [(#REM) lettre d'infos ]
+                    [(#INCLURE{fond=inc/lettreInfos})]
+                    
+                    [(#INCLURE{fond=inc/infosLivre}{largeur_image=140})]
+                    
+                    
+                </div><!-- fin div dsDroite -->
+            </div><!-- fin div colonneSecondaire -->
+            
+            
+        </div><!-- fin div corps -->
+        
+        <div id="piedPage">
+            
+            <hr class="invisible" />
+            <ul id="filAriane">
+                <li><a href="#URL_SITE_SPIP" rel="home">Accueil</a></li>
+                <li class="on"><:pass_erreur:> 404</li>
+            </ul>
+            
+            [(#INCLURE{fond=inc/navigationPlan})]
+            [(#INCLURE{fond=inc/piedPageLogo})]
+            
+        </div><!-- fin div pied de page -->
+        
+    </div><!-- fin div enveloppe -->
+</body>
+</html>

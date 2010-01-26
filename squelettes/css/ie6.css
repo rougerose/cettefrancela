@@ -1,0 +1,45 @@
+.grille {
+	background-position: center top;
+}
+
+#entete {
+	width: 100%;
+}
+
+#menuPrincipal {
+	width: 100%;
+}
+
+#colonneSecondaire {
+	/*display: inline;*/
+}
+
+#menuPrincipal ul#sousrubriques {
+	width: 940px;
+}
+
+#formulaire_recherche input#recherche {
+	font-size: 1.2em;
+	background-position: 0 0;
+}
+
+#formulaire_recherche button {
+	background-position: center right;
+}
+
+#accueil #resumeLivre {
+	margin-left: 240px;
+	height: 1%;
+}
+
+#accueil #infosLivre {
+	/*margin-left: 380px;*/
+}
+
+#triActu label {
+	width: 100px;
+}
+
+#piedPageLogo div {
+	text-align: right;
+}
