@@ -27,33 +27,25 @@
         </div><!-- fin div entete -->
         
         <div id="corps">
-            <B_selection>
-            <div id="livre" class="grille16 clearfix">
-                <BOUCLE_selection(ARTICLES pb_selection){par ordre}{spip_pb_selection.id_rubrique=0}{0,1}>
-                    [<p id="logoLivre"><a href="[IMG/(#LOGO_ARTICLE|fichier)]" rel="shadowbox"[ title="(#TITRE|supprimer_numero)"] class="sbImage">(#LOGO_ARTICLE||image_reduire{220,0}|inserer_attribut{"alt",[(#TITRE|supprimer_numero)]})</a></p>]
-                    <div id="resumeLivre">
-                        <h2>[<a href="#URL_ARTICLE">(#TITRE|supprimer_numero)</a>]</h2>
-                        [<p class="descriptif">
-                            (#DESCRIPTIF|sinon{#INTRODUCTION})
-                            <a href="#URL_ARTICLE" class="suite">suite</a>
-                        </p>]
+            <div id="slider">
+                <BOUCLE_slider_images(ARTICLES){par ordre}{spip_pb_selection.id_rubrique=0}>
+                <div class="sliderConteneur">
+                    <BOUCLE_rubrique_parente(RUBRIQUES){id_rubrique}>
+                    [(#LOGO_RUBRIQUE)]
+                    </BOUCLE_rubrique_parente>
+                    <div class="sliderDescription">
+                        [<h2>(#SURTITRE)</h2>]
+                        [<h3>(#TITRE)</h3>]
+                        [<p>(#SOUSTITRE)</p>]
                     </div>
-                    <div id="infosLivre">
-
-                        <div id="accordion">
-                            <BOUCLE_mots_livre(MOTS){id_article}{id_groupe=18}{par num titre}>
-                            <div class="element">
-                                <h3>[<a href="#">(#TITRE|supprimer_numero)</a>]</h3>
-                                [<div class="ui-accordion-content">
-                                   (#TEXTE) 
-                                </div>]
-                            </div>
-                            </BOUCLE_mots_livre>
-                        </div>
-                    </div>
-                </BOUCLE_selection>
-            </div><!-- fin -->
-            </B_selection>
+                </div>
+                </BOUCLE_slider_images>
+                <BOUCLE_slider_controleur(ARTICLES){par ordre}{spip_pb_selection.id_rubrique=0}>
+                <div id="sliderControleur">
+                    <span class="jFlowControl">#TITRE</span>
+                </div>
+                </BOUCLE_slider_controleur>
+            </div>
             
             <div id="contenuLivre" class="grille16">
                 <BOUCLE_volume1(RUBRIQUES){id_rubrique=194}>
