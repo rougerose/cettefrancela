@@ -1,0 +1,105 @@
+<BOUCLE_p(RUBRIQUES){id_rubrique=230}>
+<?xml version="1.0" encoding="#CHARSET"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG">
+<head>
+	<title>[(#NOM_SITE_SPIP|textebrut)][ / (#TITRE|supprimer_numero|textebrut)]</title>
+	[<meta name="description" content="(#DESCRIPTIF|sinon{#INTRODUCTION}|couper{200}|textebrut)" />]
+    
+    <INCLURE{fond=inc-head}>
+    
+</head>
+
+<body id="rubrique">
+    <div id="enveloppe">
+        <div id="entete">
+            <div id="logo">
+                [(#INCLURE{fond=inc/logoSite})]
+            </div>
+            
+            [(#INCLURE{fond=inc/baseline})]
+            
+            [(#INCLURE{fond=inc/menuPrincipal}{skel=#SQUELETTE}{id_rubrique}{rubrique=#ENV{id_rubrique}})]
+            
+            #FORMULAIRE_RECHERCHE
+            
+        </div><!-- fin div entete -->
+        
+        <div id="corps" class="secteur#ID_SECTEUR rubrique#ID_RUBRIQUE clearfix">
+            <div id="contenu">
+                <h1>[(#TITRE|supprimer_numero)]</h1>
+
+                <BOUCLE_breves(BREVES){id_rubrique}{par titre}>
+                <div class="actu clearfix">
+                    <div class="titre">
+                        <h2>[<a href="#URL_SITE_SPIP/lien/#ID_BREVE">(#TITRE|supprimer_numero)</a>]</h2>
+                    </div>
+                    <div class="billet">
+                        <B_mots>
+                        <p class="tag"><span class="libelle">Mots-clés</span>
+                            <BOUCLE_mots(MOTS){id_breve}{par titre}{", "}>[<a href="#URL_MOT" rel="tag">(#TITRE|supprimer_numero)</a>]</BOUCLE_mots>
+                        </p>
+                        </B_mots>
+                        [<p class="lien clearfix"><span class="libelle">Source</span>
+                            <span>(#NOM_SITE)</span>
+                        </p>]
+                        [<p class="lien clearfix"><span class="libelle">Lien</span>
+                            <span><a href="#URL_SITE">(#URL_SITE|lignes_longues{60})</a></span>
+                        </p>]
+
+                        [<div class="texte">
+                            (#TEXTE|image_reduire{460,0})
+
+                            [<div class="notes">
+                                (#NOTES)
+                            </div>]
+
+                        </div>]
+                    </div>
+                </div>
+                </BOUCLE_breves>
+
+            </div>
+            <div id="colonneSecondaire" class="colonne">
+                    <div class="grille3 colonne gauche">
+
+                        [(#INCLURE{fond=inc/infosLivre}{largeur_image=160})]
+
+                    </div><!-- fin div csGauche -->
+
+                    <div class="grille3 colonne droite">
+
+                        [(#REM) page contact]
+                        [(#INCLURE{fond=inc/contact})]
+
+                        [(#REM) lettre d'infos ]
+                        [(#INCLURE{fond=inc/lettreInfos})]
+
+                    </div><!-- fin div dsDroite -->
+                    
+            </div><!-- fin colonneSecondaire -->
+
+        </div><!-- fin div corps -->
+        
+        <div id="piedPage">
+            
+            <hr class="invisible" />
+            <ul id="filAriane">
+                <li><a href="#URL_SITE_SPIP" rel="home">Accueil</a></li>
+                <BOUCLE_hierarchie(HIERARCHIE){id_rubrique}>
+                <li><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></li>
+                </BOUCLE_hierarchie>
+                <li class="on">[(#TITRE|supprimer_numero)]</li>
+            </ul>
+            
+            [(#INCLURE{fond=inc/navigationPlan})]
+            [(#INCLURE{fond=inc/piedPageLogo})]
+            
+        </div><!-- fin div pied de page -->
+        
+    </div><!-- fin div enveloppe -->
+</body>
+</html>
+</BOUCLE_p>

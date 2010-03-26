@@ -1,0 +1,25 @@
+#SET{precedent,Lien pr&eacute;c&eacute;dent}
+#SET{suivant,Lien suivant}
+<BOUCLE_breve(BREVES){id_breve}>
+<div id="SuivantPrecedent" class="clearfix">
+    <dl class="grille3 colonne gauche">
+        <dt>#GET{precedent}</dt>
+        <BOUCLE_precedent(BREVES){id_rubrique}{age_relatif>=0}{!par date}{1,1}>
+        <dd><a href="#URL_BREVE" rel="prev">[(#TITRE|supprimer_numero)]</a></dd>
+        </BOUCLE_precedent>
+        </B_precedent>
+        <dd>Aucun lien disponible</dd>
+        <//B_precedent>
+    </dl>
+    
+    <dl class="grille3 colonne droite">
+        <dt>#GET{suivant}</dt>
+        <BOUCLE_suivant(BREVES){id_rubrique}{age_relatif<0}{par date}{0,1}>
+        <dd><a href="#URL_BREVE" rel="next">[(#TITRE|supprimer_numero)]</a></dd>
+        </BOUCLE_suivant>
+        </B_suivant>
+        <dd>Aucun lien disponible</dd>
+        <//B_suivant>
+    </dl>
+</div>
+</BOUCLE_breve>

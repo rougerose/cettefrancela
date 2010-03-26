@@ -1,0 +1,98 @@
+<BOUCLE_p(BREVES){id_breve}>
+<?xml version="1.0" encoding="#CHARSET"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG">
+<head>
+	<title>[(#NOM_SITE_SPIP|textebrut)][ / (#TITRE|supprimer_numero|textebrut)]</title>
+	[<meta name="description" content="(#DESCRIPTIF|sinon{#INTRODUCTION}|couper{200}|textebrut)" />]
+    
+    <INCLURE{fond=inc-head}>
+    
+</head>
+
+<body id="article" class="interieur breveLien">
+    <div id="enveloppe">
+        <div id="entete">
+            <div id="logo">
+                [(#INCLURE{fond=inc/logoSite})]
+            </div>
+            
+            [(#INCLURE{fond=inc/baseline})]
+            
+            [(#INCLURE{fond=inc/menuPrincipal}{skel=#SQUELETTE}{id_rubrique}{rubrique=#ENV{id_rubrique}})]
+            
+            #FORMULAIRE_RECHERCHE
+            
+        </div><!-- fin div entete -->
+        
+        <div id="corps" class="clearfix">
+            
+            <div id="titre" class="grille14">
+                <h1>[(#TITRE|supprimer_numero)]</h1>
+            </div>
+            <div id="corpsArticle">
+                [(#INCLURE{fond=inc/corpsBreveLien}{ajax}{env})]
+                
+                <BOUCLE_contact(MOTS){id_article}{titre=contact}>
+                [<div id="contact" class="ajax colonne">
+                    (#FORMULAIRE_ECRIRE_AUTEUR)
+                </div>]
+                </BOUCLE_contact>
+            </div>
+            <div id="colonneSecondaire" class="grille6 colonne">
+                [(#INCLURE{fond=inc/liensSuivantPrecedent}{env})]
+                
+                <BOUCLE_exclusion_mots_techniques(MOTS){id_groupe==^(17|18|19|20)$}{doublons}>
+                </BOUCLE_exclusion_mots_techniques>
+                
+                <div class="grille3 colonne gauche">
+                    <B_mots>
+                    <dl id="mots">
+                        <dt>Mots-clés</dt>
+                        <BOUCLE_mots(MOTS){id_breve}{par titre}{doublons}>
+                        <dd><a href="#URL_MOT" rel="tag">[(#TITRE|supprimer_numero)]</a></dd>
+                        </BOUCLE_mots>
+                    </dl>
+                    </B_mots>
+                    
+                </div><!-- fin div csGauche -->
+                
+                <div class="grille3 colonne droite">
+                    
+                    [(#REM) page contact]
+                    [(#INCLURE{fond=inc/contact})]
+
+                    [(#REM) lettre d'infos ]
+                    [(#INCLURE{fond=inc/lettreInfos})]
+                    
+                    [(#INCLURE{fond=inc/infosLivre}{largeur_image=160})]
+                    
+                    
+                </div><!-- fin div dsDroite -->
+            </div><!-- fin div colonneSecondaire -->
+            
+            
+        </div><!-- fin div corps -->
+        
+        <div id="piedPage">
+            
+            <hr class="invisible" />
+            <ul id="filAriane">
+                <li><a href="#URL_SITE_SPIP" rel="home">Accueil</a></li>
+                <BOUCLE_hierarchie(HIERARCHIE){id_article}>
+                <li><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></li>
+                </BOUCLE_hierarchie>
+                <li class="on">[(#TITRE|supprimer_numero)]</li>
+            </ul>
+            
+            [(#INCLURE{fond=inc/navigationPlan})]
+            [(#INCLURE{fond=inc/piedPageLogo})]
+            
+        </div><!-- fin div pied de page -->
+        
+    </div><!-- fin div enveloppe -->
+</body>
+</html>
+</BOUCLE_p>

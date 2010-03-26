@@ -1,0 +1,20 @@
+<BOUCLE_breve(BREVES){id_breve}>
+[(#SET{socialtags,st})]
+<div id="texte" class="colonne[ (#GET{socialtags})]">
+    <div id="meta">
+        [<p class="lien clearfix"><span class="libelle">Source</span>
+            <span>(#NOM_SITE)</span>
+        </p>]
+        [<p class="lien clearfix"><span class="libelle">Lien</span>
+            <span><a href="#URL_SITE">(#URL_SITE|lignes_longues{60})</a></span>
+        </p>]
+    </div>
+    
+    [(#TEXTE|image_reduire{460,0})]
+
+    [<div id="notes">
+        <h3>Notes</h3>
+        (#NOTES)
+    </div>]
+</div>
+</BOUCLE_breve>

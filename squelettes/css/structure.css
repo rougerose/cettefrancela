@@ -30,16 +30,16 @@ body {
 	width: 700px;
 }
 
-#rubrique div.secteur199 #contenu {
+#rubrique div.secteur199 #contenu, #rubrique div.rubrique230 #contenu {
 	width: 580px;
 }
 
-#rubrique div.secteur193 #contenu, #rubrique div.secteur199 #contenu, #recherche #contenu, #mot #contenu {
+#rubrique div.secteur193 #contenu, #rubrique div.secteur199 #contenu, #rubrique div.rubrique230 #contenu, #recherche #contenu, #mot #contenu {
 	float: left;
 	margin-top: 0;
 }
 
-#article #colonneSecondaire, #rubrique div.secteur193 #colonneSecondaire, #rubrique div.secteur199 #colonneSecondaire, #recherche #colonneSecondaire, #mot #colonneSecondaire {
+#article #colonneSecondaire, #rubrique div.secteur193 #colonneSecondaire, #rubrique div.secteur199 #colonneSecondaire, #rubrique div.rubrique230 #colonneSecondaire, #recherche #colonneSecondaire, #mot #colonneSecondaire {
 	margin-left: 20px;
 }
 
@@ -47,7 +47,7 @@ body {
 	width: 220px;
 }
 
-#rubrique div.secteur199 #colonneSecondaire {
+#rubrique div.secteur199 #colonneSecondaire, #rubrique div.rubrique230 #colonneSecondaire {
 	width: 340px;
 }
 
@@ -55,7 +55,7 @@ div.secteur193 #colonneSecondaire {
 	margin-top: 4.5em;
 }
 
-div.secteur199 #colonneSecondaire {
+div.secteur199 #colonneSecondaire, div.rubrique230 #colonneSecondaire {
 	margin-top: 7em;
 }
 

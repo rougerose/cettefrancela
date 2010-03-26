@@ -529,13 +529,16 @@ html #colonneSecondaire dd p {
 	width: 460px;
 }
 
+.rubrique230 .actu .billet {
+	border-bottom-width: 0; }
+
 .actu .meta {
 	color: #808080;
 	float: left;
 	width: 100px;
 }
 
-#rubrique .secteur199 h1 {
+#rubrique .secteur199 h1, #rubrique .rubrique230 h1 {
 	margin-bottom: 2em;
 }
 
@@ -556,7 +559,7 @@ html #colonneSecondaire dd p {
 .actu p.tag, .actu p.auteur, .actu p.lien, .actu p.doc {
 	border-bottom: 1px solid #eee;
 	font-size: 1.1em;
-	padding: .2em 0 .1em 7em;
+	padding: .2em 0 .3em 7em;
 	margin-bottom: .5em;
 }
 
@@ -598,6 +601,14 @@ span.libelle {
 	width: 7em;
 	margin-left: -7em;
 }
+
+.breveLien #meta p span {
+	font-weight: bold;
+	display: block; float: left;
+	width: 380px; }
+
+.breveLien #meta p span.libelle {
+	width: 80px; }
 
 #article #meta p span.libelle {
 	margin-left: 0;
@@ -747,6 +758,9 @@ dl.affiches dd.logo {
 #texte p {
 	text-align: justify;
 }
+
+.breveLien #texte p {
+	text-align: left; } 
 
 #texte p, #texte h2, #texte h3, #texte h4, #texte h5, #texte h6, #texte ul, #texte ol {
 	margin-left: 120px;
