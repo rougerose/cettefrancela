@@ -346,6 +346,42 @@ p#baseline {
 	margin-top: .5em;
 }
 
+/* Slider */
+
+#jFlowSlide {
+	border-bottom: 1px solid #000; }
+
+#slides * {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; }
+
+.slideDescription {
+	position: absolute; top: 25%; left: 540px; text-align: ; }
+
+.slideDescription h2 {
+	font-size: 36px; line-height: 36px; }
+
+.slideDescription h3 {
+	font-size: 36px; line-height: 36px; }
+	
+#accueil .slideDescription p.soustitre {
+	font-size: 20px;
+	color: #000; }
+
+.slideDescription .presentation {
+	margin-top: 44px; }
+
+.slideDescription .presentation p {
+	color: #808080;
+	text-transform: uppercase;
+	margin-bottom: .1em; padding-bottom: .1em;
+	float: right; clear: right; }
+
+.slideDescription .presentation p strong {
+	color: #000; }
+
+.slideDescription .disponible p:first-child {
+	border-bottom: 1px solid #000; }
+
 /* elements communs (hors typo) */
 
 #colonneSecondaire, #piedPage {

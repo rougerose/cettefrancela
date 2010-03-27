@@ -3,9 +3,11 @@ $(document).ready(function(){
     // =================================================
     // faire apparaitre la grille de base (jquery)
     // =================================================
-    /*$("#toggle").click(function () {
+    
+    $("body").append("<button id='toggle'>grille</button>");
+    $("#toggle").click(function () {
 	      $("body").toggleClass("grille");
-	});*/
+	});
 	
 	// =================================================
     // icone agrandissement image
@@ -47,6 +49,24 @@ $(document).ready(function(){
     // accordeon page d'accueil
     // =================================================
 	$("#accordion").accordion({ header: "h3", autoHeight: false });
+	
+	
+	$("#controller").jFlow({
+		slides: "#slides",
+		controller: ".jFlowControl", // must be class, use . sign
+		slideWrapper : "#jFlowSlide", // must be id, use # sign
+		selectedWrapper: "jFlowSelected",  // just pure text, no sign
+		auto: false,		//auto change slide, default true
+		width: "940px",
+		height: "385px",
+		duration: 400,
+		prev: ".jFlowPrev", // must be class, use . sign
+		next: ".jFlowNext" // must be class, use . sign
+	});
+	
+	
+	
+	
 });
 
 	// =================================================

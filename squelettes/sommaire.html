@@ -27,25 +27,48 @@
         </div><!-- fin div entete -->
         
         <div id="corps">
-            <div id="slider">
+
+            <div id="slides">
                 <BOUCLE_slider_images(ARTICLES){par ordre}{spip_pb_selection.id_rubrique=0}>
-                <div class="sliderConteneur">
+                <div>
                     <BOUCLE_rubrique_parente(RUBRIQUES){id_rubrique}>
-                    [(#LOGO_RUBRIQUE)]
+                    #LOGO_RUBRIQUE
                     </BOUCLE_rubrique_parente>
-                    <div class="sliderDescription">
+                    <div id="s#COMPTEUR_BOUCLE" class="slideDescription grille7">
                         [<h2>(#SURTITRE)</h2>]
-                        [<h3>(#TITRE)</h3>]
-                        [<p>(#SOUSTITRE)</p>]
+                        [<h3>(#TITRE|supprimer_numero)</h3>]
+                        [<p class="soustitre">(#SOUSTITRE)</p>]
+                        [(#DISPONIBILITE|=={1}|oui)
+                        <div class="presentation disponible">
+                            [(#PRESENTATION|propre)]
+                        </div>
+                        ]
+                        
                     </div>
+                    <p>This is photo number one. Neato!</p>
                 </div>
                 </BOUCLE_slider_images>
-                <BOUCLE_slider_controleur(ARTICLES){par ordre}{spip_pb_selection.id_rubrique=0}>
-                <div id="sliderControleur">
-                    <span class="jFlowControl">#TITRE</span>
-                </div>
-                </BOUCLE_slider_controleur>
+
             </div>
+            
+            <ul class="nav" id="controller">
+                <BOUCLE_slider_controleur(ARTICLES){par ordre}{spip_pb_selection.id_rubrique=0}>
+                <li class="jFlowControl"><a href="#sCOMPTEUR_BOUCLE">#COMPTEUR_BOUCLE</a></li>
+                </BOUCLE_slider_controleur>
+            </ul>
+            
+            <div id="" class="">
+                
+                <span class="">No #COMPTEUR_BOUCLE</span>
+                
+            </div>
+            
+            <div id="prevNext">
+                <img src="images/prev.png" alt="Previous Tab" class="jFlowPrev" />
+                <img src="images/next.png" alt="Next Tab" class="jFlowNext" />
+            </div>
+            
+            
             
             <div id="contenuLivre" class="grille16">
                 <BOUCLE_volume1(RUBRIQUES){id_rubrique=194}>
