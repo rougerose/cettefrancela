@@ -51,18 +51,42 @@ $(document).ready(function(){
 	$("#accordion").accordion({ header: "h3", autoHeight: false });
 	
 	
-	$("#controller").jFlow({
-		slides: "#slides",
-		controller: ".jFlowControl", // must be class, use . sign
-		slideWrapper : "#jFlowSlide", // must be id, use # sign
-		selectedWrapper: "jFlowSelected",  // just pure text, no sign
-		auto: false,		//auto change slide, default true
-		width: "940px",
-		height: "385px",
-		duration: 400,
-		prev: ".jFlowPrev", // must be class, use . sign
-		next: ".jFlowNext" // must be class, use . sign
+    var $slide = $('#slider .slide');
+    var $conteneur = $('#slider #slidesConteneur');
+    // calculate a new width for the container (so it holds all panels)
+    // extrait de http://www.markboultondesign.com/projects/de-standaard
+    // probablement repris de jqueryfordesigners.com (à vérifier et reprendre le script en fonction de ç)
+    $conteneur.css('width', 950 * $slide.length);
+
+    $("div.boutonSlider").mouseover(function(){
+        $(this).addClass("over");
+    }).mouseout(function(){
+        $(this).removeClass("over");
+    });
+
+	
+	$('#screen').serialScroll({
+	    target:'#sections',
+        		items:'li', // Selector to the items ( relative to the matched elements, '#sections' in this case )
+        		prev:'img.prev',// Selector to the 'prev' button (absolute!, meaning it's relative to the document)
+        		next:'img.next',// Selector to the 'next' button (absolute too)
+        		axis:'xy',// The default is 'y' scroll on both ways
+        		navigation:'#navigation li a',
+        		duration:700,// Length of the animation (if you scroll 2 axes and use queue, then each axis take half this time)
+        		force:true, // Force a scroll to the element specified by 'start' (some browsers don't reset on refreshes)
 	});
+	
+	$("#slider").fadeIn("slow").serialScroll({
+	    target: '#slides',
+	    items: '.slide',
+	    prev: '.precedent',
+	    next: '.suivant',
+	    axis: 'xy',
+	    navigation: '#navigationSlider li a',
+	    duration: 700,
+	    force: true
+	});
+    
 	
 	
 	

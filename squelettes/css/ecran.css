@@ -348,40 +348,102 @@ p#baseline {
 
 /* Slider */
 
-#jFlowSlide {
-	border-bottom: 1px solid #000; }
+#slider {
+	display: none;
+	border-bottom: 1px solid #000;
+	position: relative;
+	width: 940px; }
+	
+#slides {
+	height: 385px; width: 940px;
+	overflow: hidden; }
 
-#slides * {
+/* Slider : navigation */
+
+#navigationSlider {
+	float: right; }
+	
+	#navigationSlider li {
+		display: inline; }
+
+.boutonSlider {
+	cursor: pointer;
+	position: absolute; top: 0; z-index: 999;
+	height: 18px; width: 18px;
+	background: url(../images/navigationSlider-sprite.png) no-repeat 0 0; }
+
+.boutonSlider.precedent {
+	right: 24px; }
+	
+.boutonSlider.suivant {
+	background-position: -19px 0;
+	right: 0; }
+
+.boutonSlider.precedent.over {
+	background-position: 0 -19px; }
+
+.boutonSlider.suivant.over {
+	background-position: -19px -19px; }
+
+/* Slider : image et description */
+
+.slide {
+	float: left;
+	position: relative;
+	margin-right: 10px;}
+
+.slide * {
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; }
 
-.slideDescription {
-	position: absolute; top: 25%; left: 540px; text-align: ; }
+.descriptionSlide {
+	position: absolute; top: 18%; left: 540px; }
 
-.slideDescription h2 {
+.descriptionSlide h2 {
 	font-size: 36px; line-height: 36px; }
 
-.slideDescription h3 {
+.descriptionSlide h3 {
 	font-size: 36px; line-height: 36px; }
 	
-#accueil .slideDescription p.soustitre {
+#accueil .descriptionSlide p.soustitre {
 	font-size: 20px;
 	color: #000; }
 
-.slideDescription .presentation {
+.descriptionSlide .presentation {
 	margin-top: 44px; }
 
-.slideDescription .presentation p {
+.descriptionSlide .presentation p {
 	color: #808080;
 	text-transform: uppercase;
-	margin-bottom: .1em; padding-bottom: .1em;
+	margin-bottom: .1em;
 	float: right; clear: right; }
 
-.slideDescription .presentation p strong {
+.descriptionSlide .presentation p strong {
 	color: #000; }
 
-.slideDescription .disponible p:first-child {
-	border-bottom: 1px solid #000; }
+.descriptionSlide .disponible p:first-child, .descriptionSlide .epuise p+p {
+	font-size: 16px;
+	border-bottom: 1px solid #000;
+	padding-bottom: .1em; }
 
+.descriptionSlide .epuise p:last-child {
+	border: 0;
+	font-size: 13px; }
+
+.descriptionSlide .epuise p.epuise {
+	background-color: #000; color: #fff;
+	padding: 3px 4px 4px; margin-bottom: 1em; }
+
+.lienArticle {
+	text-transform: uppercase;
+	text-align: right;
+	margin-top: 35px; padding-right: 16px;
+	background: url(../images/lienArticle.png) no-repeat right center; }
+
+
+/*
+	padding-right: 16px;
+	background: url(../images/lienArticle-sprite.png) no-repeat right top; }
+*/
 /* elements communs (hors typo) */
 
 #colonneSecondaire, #piedPage {
