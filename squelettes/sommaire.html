@@ -27,34 +27,51 @@
         </div><!-- fin div entete -->
         
         <div id="corps">
-            <B_selection>
-            <div id="livre" class="grille16 clearfix">
-                <BOUCLE_selection(ARTICLES pb_selection){par ordre}{spip_pb_selection.id_rubrique=0}{0,1}>
-                    [<p id="logoLivre"><a href="[IMG/(#LOGO_ARTICLE|fichier)]" rel="shadowbox"[ title="(#TITRE|supprimer_numero)"] class="sbImage">(#LOGO_ARTICLE||image_reduire{220,0}|inserer_attribut{"alt",[(#TITRE|supprimer_numero)]})</a></p>]
-                    <div id="resumeLivre">
-                        <h2>[<a href="#URL_ARTICLE">(#TITRE|supprimer_numero)</a>]</h2>
-                        [<p class="descriptif">
-                            (#DESCRIPTIF|sinon{#INTRODUCTION})
-                            <a href="#URL_ARTICLE" class="suite">suite</a>
-                        </p>]
-                    </div>
-                    <div id="infosLivre">
-
-                        <div id="accordion">
-                            <BOUCLE_mots_livre(MOTS){id_article}{id_groupe=18}{par num titre}>
-                            <div class="element">
-                                <h3>[<a href="#">(#TITRE|supprimer_numero)</a>]</h3>
-                                [<div class="ui-accordion-content">
-                                   (#TEXTE) 
-                                </div>]
-                            </div>
-                            </BOUCLE_mots_livre>
-                        </div>
-                    </div>
-                </BOUCLE_selection>
-            </div><!-- fin -->
-            </B_selection>
             
+            
+            <div id="slider">
+                <!-- TODO à terminer
+                <ul id="navigationSlider">
+                    <BOUCLE_slider_controleur(ARTICLES){par ordre}{spip_pb_selection.id_rubrique=0}>
+                    <li><a href="#">#COMPTEUR_BOUCLE</a></li>
+                    #SET{compteur,#COMPTEUR_BOUCLE}
+                    </BOUCLE_slider_controleur>
+                </ul>
+                -->
+                <div class="boutonSlider precedent">&nbsp;</div>
+                <div id="slides">[(#REM) calcul de la largeur : 940 px pour la colonne, 20 px (10 px pour chaque image) ]
+                    <div id="slidesConteneur">
+                        <BOUCLE_slider_images(ARTICLES){par ordre}{spip_pb_selection.id_rubrique=0}>
+                        <div class="slide clearfix">
+                            <BOUCLE_rubrique_parente(RUBRIQUES){id_rubrique}>
+                            #LOGO_RUBRIQUE
+                            </BOUCLE_rubrique_parente>
+                            <div class="descriptionSlide grille7">
+                                [<h2>(#SURTITRE)</h2>]
+                                [<h3>(#TITRE|supprimer_numero)</h3>]
+                                [<p class="soustitre">(#SOUSTITRE)</p>]
+                                [(#DISPONIBILITE|=={1}|oui)
+                                <div class="presentation disponible clearfix">
+                                    [(#PRESENTATION|propre)]
+                                </div>
+                                ]
+                                [(#DISPONIBILITE|=={2}|oui)
+                                <div class="presentation epuise clearfix">
+                                    <p class="epuise">livre épuisé</p>
+                                    [(#PRESENTATION|propre)]
+                                </div>
+                                ]
+                                
+                                [(#REM) TODO reprendre la fleche du lien ci-dessous ]
+                                <p class="lienArticle"><a href="#URL_ARTICLE" class="">En savoir plus</a></p>
+                            </div>
+                        </div>
+                        </BOUCLE_slider_images>
+                    </div>
+                </div>
+                <div class="boutonSlider suivant">&nbsp;</div>
+            </div>
+
             <div id="contenuLivre" class="grille16">
                 <BOUCLE_volume1(RUBRIQUES){id_rubrique=194}>
                 <BOUCLE_contenu1(RUBRIQUES){id_parent}{par num titre}{doublons contenu}>

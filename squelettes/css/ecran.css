@@ -346,6 +346,104 @@ p#baseline {
 	margin-top: .5em;
 }
 
+/* Slider */
+
+#slider {
+	display: none;
+	border-bottom: 1px solid #000;
+	position: relative;
+	width: 940px; }
+	
+#slides {
+	height: 385px; width: 940px;
+	overflow: hidden; }
+
+/* Slider : navigation */
+
+#navigationSlider {
+	float: right; }
+	
+	#navigationSlider li {
+		display: inline; }
+
+.boutonSlider {
+	cursor: pointer;
+	position: absolute; top: 0; z-index: 999;
+	height: 18px; width: 18px;
+	background: url(../images/navigationSlider-sprite.png) no-repeat 0 0; }
+
+.boutonSlider.precedent {
+	right: 24px; }
+	
+.boutonSlider.suivant {
+	background-position: -19px 0;
+	right: 0; }
+
+.boutonSlider.precedent.over {
+	background-position: 0 -19px; }
+
+.boutonSlider.suivant.over {
+	background-position: -19px -19px; }
+
+/* Slider : image et description */
+
+.slide {
+	float: left;
+	position: relative;
+	margin-right: 10px;}
+
+.slide * {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; }
+
+.descriptionSlide {
+	position: absolute; top: 18%; left: 540px; }
+
+.descriptionSlide h2 {
+	font-size: 36px; line-height: 36px; }
+
+.descriptionSlide h3 {
+	font-size: 36px; line-height: 36px; }
+	
+#accueil .descriptionSlide p.soustitre {
+	font-size: 20px;
+	color: #000; }
+
+.descriptionSlide .presentation {
+	margin-top: 44px; }
+
+.descriptionSlide .presentation p {
+	color: #808080;
+	text-transform: uppercase;
+	margin-bottom: .1em;
+	float: right; clear: right; }
+
+.descriptionSlide .presentation p strong {
+	color: #000; }
+
+.descriptionSlide .disponible p:first-child, .descriptionSlide .epuise p+p {
+	font-size: 16px;
+	border-bottom: 1px solid #000;
+	padding-bottom: .1em; }
+
+.descriptionSlide .epuise p:last-child {
+	border: 0;
+	font-size: 13px; }
+
+.descriptionSlide .epuise p.epuise {
+	background-color: #000; color: #fff;
+	padding: 2px 4px 2px; margin-bottom: 1em; }
+
+.lienArticle {
+	text-transform: uppercase;
+	text-align: right;
+	margin-top: 35px; padding-right: 16px;
+	background: url(../images/lienArticle.png) no-repeat right center; }
+
+
+/*
+	padding-right: 16px;
+	background: url(../images/lienArticle-sprite.png) no-repeat right top; }
+*/
 /* elements communs (hors typo) */
 
 #colonneSecondaire, #piedPage {
