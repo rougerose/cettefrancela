@@ -52,7 +52,7 @@
     <B_evenements>
     <dl id="agenda">
         <dt>Prochains rendez-vous</dt>
-        <BOUCLE_evenements(EVENEMENTS){id_rubrique}>
+        <BOUCLE_evenements(EVENEMENTS){id_rubrique}{age<0}{par date}{statut=publie}>
         <dd>[(#DATE_DEBUT|affdate)][ <a href="#URL_ARTICLE">(#TITRE|supprimer_numero)</a>]</dd>
         </BOUCLE_evenements>
     </dl>
