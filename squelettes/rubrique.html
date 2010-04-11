@@ -33,8 +33,13 @@
             <div id="contenu">
                 <h1>[(#TITRE|supprimer_numero)]</h1>
                 [(#REM) rubrique 194 - chapitre volume 1]
-                [(#ID_RUBRIQUE|=={194}|?{' '})
+                [(#ID_RUBRIQUE|in_array{#ARRAY{0,194}}|oui)
                     [(#INCLURE{fond=inc/corpsRubrique194}{env})]
+                ]
+                
+                [(#REM) rubrique 230 - chapitre volume 2 - TODO en attendant de mettre en ligne le livre ce sera un squelette spécifique ]
+                [(#ID_RUBRIQUE|in_array{#ARRAY{0,230}}|oui)
+                    [(#INCLURE{fond=inc/corpsRubrique230}{env})]
                 ]
                 
                 [(#REM) rubrique Actualites ]
@@ -53,12 +58,12 @@
                 ]
                 
                 [(#REM) on est dans la rubrique 195 ou 197 - chapitre Recits 1 ou 2 ? ]        
-                [(#ID_RUBRIQUE|in_array{#ARRAY{0,195,1,197}}|?{' ',''})
+                [(#ID_RUBRIQUE|in_array{#ARRAY{0,195,1,197}}|oui)
                     [(#INCLURE{fond=inc/corpsRubrique_195_197}{id_rubrique}{env}{ajax})]
                 ]
                 
                 [(#REM) on est dans la rubrique 196 ou 198 -  chapitre Descriptions ou Interrogations ? ]
-                [(#ID_RUBRIQUE|in_array{#ARRAY{0,196,1,198}}|?{' ',''})
+                [(#ID_RUBRIQUE|in_array{#ARRAY{0,196,1,198}}|oui)
                     [(#INCLURE{fond=inc/corpsRubrique_196_198}{id_rubrique}{env}{ajax})]
                 ]
             </div>
@@ -71,7 +76,7 @@
                 
                 [(#REM) test rubrique autre que Actualites : on passe sur une colonne ]
                 [(#ID_RUBRIQUE|=={199}|non)
-                    [(#ID_SECTEUR|=={194}|oui)
+                    [(#ID_SECTEUR|in_array{#ARRAY{0,194,1,230}}|oui)
                     [(#INCLURE{fond=inc/infosLivre}{largeur_image=220})]
                     ]
                     

@@ -1,0 +1,10 @@
+[(#REM) rubrique Volume 2 ? affichage cp du libre ]
+<div class="section grille12 rubrique#ID_RUBRIQUE clearfix">
+    <BOUCLE_cp(ARTICLES){par ordre}{spip_pb_selection.id_rubrique=230}>
+    <div class="principal grille12">
+        <h2>[[(#SURTITRE), ](#TITRE|supprimer_numero)]</h2>
+        [<p class="soustitre">(#SOUSTITRE)</p>]
+        [(#INCLURE{fond=inc/corpsArticle,id_article,env,logo=non})]
+    </div>
+    </BOUCLE_cp>
+</div>

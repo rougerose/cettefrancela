@@ -73,8 +73,9 @@
     
     
     [(#CS_DECOUPE)]
-    
+    [(#ENV{logo}|!=={'non'}|oui)
     [<p id="logoArticle" class="colonne"><a href="[IMG/(#LOGO_ARTICLE|fichier)]" rel="shadowbox"[ title="(#TITRE|supprimer_numero)"] class="sbImage">(#LOGO_ARTICLE||image_reduire{220,0}|inserer_attribut{"alt",[(#TITRE|supprimer_numero)]})</a></p>]
+    ]
     
     [<div id="chapo">
         (#CHAPO)
