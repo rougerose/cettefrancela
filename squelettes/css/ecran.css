@@ -551,7 +551,7 @@ html #colonneSecondaire dd p {
 	margin: 4em 0 2em;
 }
 
-.secteur194 #blocInfosLivre {
+.secteur194 #blocInfosLivre, .secteur230 #blocInfosLivre {
 	margin-bottom: 4em;
 }
 

@@ -1,14 +1,20 @@
 <div id="blocInfosLivre">
-    <BOUCLE_article_infosLivre(ARTICLES){titre_mot=présentation livre}{0,1}>
-    [<p id="logoLivre"><a href="[IMG/(#LOGO_ARTICLE|fichier)]" rel="shadowbox"[ title="(#TITRE|supprimer_numero)"] class="sbImage">(#LOGO_ARTICLE||image_reduire{#ENV{largeur_image},0}|inserer_attribut{"alt",[(#TITRE|supprimer_numero)]})</a></p>]
+    <BOUCLE_volumes(RUBRIQUES){titre==volume}{!par num titre}{0,1}>
+    <BOUCLE_volumes_images(ARTICLES){par ordre}{spip_pb_selection.id_rubrique=#ID_RUBRIQUE}>
+    [<p id="logoLivre">(#LOGO_ARTICLE||image_reduire{220,0}|inserer_attribut{"class","imgVolume"}|inserer_attribut{"alt",[(#SURTITRE), ][(#TITRE), ][(#SOUSTITRE)]})</p>]
 
-    <B_mots_infos>
+    [(#DISPONIBILITE|=={1}|oui)
     <dl id="infosLivre">
-        <BOUCLE_mots_infos(MOTS){id_article}{id_groupe=19}{par num titre}>
-        <dt>[(#TITRE|supprimer_numero)]</dt>
-        <dd class="descriptif">[(#TEXTE)]</dd>
-        </BOUCLE_mots_infos>
+        <dt>Disponible en librairie</dt>
+        <dd class="descriptif">[(#PRESENTATION_MARGE|propre)]</dd>
     </dl>
-    </B_mots_infos>
-    </BOUCLE_article_infosLivre>
+    ]
+    [(#DISPONIBILITE|=={2}|oui)
+    <dl id="infosLivre">
+        <dt>Livre &eacute;puis&eacute;</dt>
+        <dd class="descriptif">[(#PRESENTATION_MARGE|propre)]</dd>
+    </dl>
+    ]
+    </BOUCLE_volumes_images>
+    </BOUCLE_volumes>
 </div>
