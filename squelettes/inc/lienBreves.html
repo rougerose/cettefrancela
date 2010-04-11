@@ -1,0 +1,34 @@
+<B_breves>
+[(#ANCRE_PAGINATON)]
+[(#PAGINATION{cfl})]
+    <BOUCLE_breves(BREVES){id_rubrique}{par titre}{pagination 2}>
+    <div class="actu clearfix">
+        <div class="titre">
+            <h2>[<a href="#URL_SITE_SPIP/volume-2/lien/#ID_BREVE">(#TITRE|supprimer_numero)</a>]</h2>
+        </div>
+        <div class="billet">
+            <B_mots>
+            <p class="tag"><span class="libelle">Mots-clés</span>
+                <BOUCLE_mots(MOTS){id_breve}{par titre}{", "}>[<a href="#URL_MOT" rel="tag">(#TITRE|supprimer_numero)</a>]</BOUCLE_mots>
+            </p>
+            </B_mots>
+            [<p class="lien clearfix"><span class="libelle">Source</span>
+                <span>(#NOM_SITE)</span>
+            </p>]
+            [<p class="lien clearfix"><span class="libelle">Lien</span>
+                <span><a href="#URL_SITE">(#URL_SITE|lignes_longues{60})</a></span>
+            </p>]
+
+            [<div class="texte">
+                (#TEXTE|image_reduire{460,0})
+
+                [<div class="notes">
+                    (#NOTES)
+                </div>]
+
+            </div>]
+        </div>
+    </div>
+    </BOUCLE_breves>
+[(#PAGINATION{cfl})]
+</B_breves>

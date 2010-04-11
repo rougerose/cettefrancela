@@ -10,7 +10,7 @@
                 [(#TITRE|supprimer_numero)]
             </a>
             [(#EXPOSE{' '})
-            [(#INCLURE{fond=inc/menuPrincipalSousrubriques}{id_rubrique}{rubrique=#ENV{id_rubrique}})]
+            [(#INCLURE{fond=inc/menuPrincipalSousrubriques}{id_rubrique}{rubrique=#ENV{id_rubrique}}{env})]
             ]
         </li>
         </BOUCLE_menuPrincipal>

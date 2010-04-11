@@ -3,5 +3,15 @@
     <BOUCLE_sousrubriques(RUBRIQUES){id_parent}{par num titre, titre}>
     <li[ (#ENV{rubrique}|=={#ID_RUBRIQUE}|?{'class="on"'})]>[<a href="#URL_RUBRIQUE">(#TITRE|supprimer_numero)</a>]</li>
     </BOUCLE_sousrubriques>
+    <BOUCLE_test_volume2_1(RUBRIQUES){id_rubrique}{id_rubrique=230}>
+    <li[ (#ENV{skel}|=={'squelettes/lien.html'}|?{'class="on"'})]><a href="#URL_RUBRIQUElien">Liens</a></li>
+    </BOUCLE_test_volume2_1>
 </ul>
 </B_sousrubriques>
+<BOUCLE_test_volume2_2(RUBRIQUES){id_rubrique}{id_rubrique=230}>
+<ul id="sousrubriques">
+    <li[ (#ENV{skel}|=={'squelettes/lien.html'}|?{'class="on"'})]><a href="#URL_RUBRIQUElien">Liens</a></li>
+    </BOUCLE_sousrubriques>
+</ul>
+</BOUCLE_test_volume2_2>
+<//B_sousrubriques>
