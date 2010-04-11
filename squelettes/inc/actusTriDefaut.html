@@ -84,7 +84,7 @@
         </p>]
         <B_doc>
         <p class="doc"><span class="libelle">Documents</span>
-            <BOUCLE_doc(DOCUMENTS){id_article}{mode=document}{par num titre, id_document}{", "}>
+            <BOUCLE_doc(DOCUMENTS){id_article}{mode=document}{par num titre, id_document}{vu=non}{", "}>
             <a href="#URL_DOCUMENT" type="#MIME_TYPE">[(#TITRE|sinon{document #ID_DOCUMENT})]</a> [[(#TYPE_DOCUMENT)][ - (#TAILLE|taille_en_octets)]]
             </BOUCLE_doc>
         </p>
@@ -96,6 +96,10 @@
             ]
             [(#DESCRIPTIF|non)
                 [<p id="logoArticle" class="colonne"><a href="[IMG/(#LOGO_ARTICLE|fichier)]" rel="shadowbox"[ title="(#TITRE|supprimer_numero)"] class="sbImage">(#LOGO_ARTICLE||image_reduire{160,0}|inserer_attribut{"alt",[(#TITRE|supprimer_numero)]})</a></p>]
+                [<div class="chapo">
+                    (#CHAPO)
+                </div>]
+                
                 [(#TEXTE|image_reduire{460,0})]
 
                 [<div class="ps">

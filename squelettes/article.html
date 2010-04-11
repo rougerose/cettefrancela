@@ -78,7 +78,7 @@
                     <B_documents>
                     <dl id="documents">
                         <dt>Documents</dt>
-                        <BOUCLE_documents(DOCUMENTS){id_article}{mode=document}{doublons}>
+                        <BOUCLE_documents(DOCUMENTS){id_article}{mode=document}{vu=non}>
                         [<dt class="titre">(#TITRE|supprimer_numero|sinon{document #ID_DOCUMENT})</dt>]
                         [(#ID_VIGNETTE|!=={0}|?{
                             [<dd class="logo"><a href="#URL_DOCUMENT" type="#MIME_TYPE"[ (#EXTENSION|in_array{#ARRAY{0,jpg,1,gif,2,png,3,swf,4,mov,5,flv}}|oui)rel="shadowbox;height=#HAUTEUR;width=#LARGEUR"]>(#LOGO_DOCUMENT||image_recadre{52,52,center}|inserer_attribut{alt,[(#TITRE|supprimer_numero|sinon{document #ID_DOCUMENT})]})</a></dd>]

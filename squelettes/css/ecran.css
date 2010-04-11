@@ -32,7 +32,7 @@ a:active {
 	
 }
 
-a.suite {
+a.suite, .lienToute a {
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
@@ -150,7 +150,7 @@ h2.titreChapitre {
 
 /* pour les intertitres des textes des articles voir le fichier intertitres_publics.css */
 
-#corps p.soustitre, #corps p.surtitre {
+#corps p.soustitre, #corps p.surtitre, #accueil .hentry p.soustitre, #accueil .hentry p.surtitre {
 	color: #808080;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	margin: 0;
@@ -346,6 +346,49 @@ p#baseline {
 	margin-top: .5em;
 }
 
+p.lienToute {
+	text-align: right;
+	xborder-top: 1px solid #000; xborder-width: 1px 0; }
+
+/* hentry */
+
+#accueil .hentry {
+	margin: 1em 0; }
+
+	#accueil .hentry .titre {
+		margin: 0 0 .6em 0;
+		padding: 0 0 .4em 0;
+		border-bottom: 1px solid #eee; }
+
+		#accueil .hentry p.surtitre {
+			font-size: 11px;
+			margin-bottom: .25em; }
+		
+		#accueil h3.entry-title {
+			font-size: 1.5em; }
+	
+	#accueil .hentry .entry-summary {
+		float: right;
+		width: 340px; }
+	
+	#accueil .hentry .date {
+		color: #808080;
+		text-align: left;
+		width: 100px;
+		float: left; }
+	
+		#accueil .hentry .date p {
+			font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; }
+		
+			#accueil .hentry .date span.jour {
+				font-weight: bold; }
+	
+	#accueil .hentry .infosObjet {
+		font-size: 11px;
+		float: right;
+		width: 340px;
+		margin-bottom: 2em; }
+
 /* Slider */
 
 #slider {
@@ -439,6 +482,26 @@ p#baseline {
 	margin-top: 35px; padding-right: 16px;
 	background: url(../images/lienArticle.png) no-repeat right center; }
 
+/* Volumes : mise en avant */
+/* pour l'accueil */
+.volumeExpose {
+	margin: 0 0 2em; }
+	
+	.volumeExpose .imgVolume {
+		float: right; }
+		
+	#accueil .volumeExpose .descriptif {
+		margin-top: 1em;
+		width: 280px; }
+		
+	.volumeExpose .blocInfosLivre {
+		float: right; }
+
+		.volumeExpose .blocInfosLivre p {
+			color: #808080;
+			font: 1.1em/1.2 "Helvetica Neue",Helvetica,Arial,sans-serif;
+			margin: 0 0 .3em; }
+
 
 /*
 	padding-right: 16px;
@@ -454,7 +517,7 @@ p#baseline {
 	margin-bottom: 2em;
 }
 
-#colonneSecondaire dt, #piedPage dt {
+#colonneSecondaire dt, #piedPage dt, .blocInfosLivre dt {
 	border-bottom: 1px solid #999;
 	font-size: 1.1em;
 	font-weight: bold;
@@ -474,7 +537,7 @@ html #colonneSecondaire dd p {
 	margin: 0 0 .3em;
 }
 
-#colonneSecondaire dd.descriptif {
+#colonneSecondaire dd.descriptif, .blocInfosLivre dd.descriptif {
 	background: none;
 	margin-bottom: 1em;
 	padding-left: 0;
@@ -573,6 +636,9 @@ html #colonneSecondaire dd p {
 #rubrique #corps p {
 	text-align: justify;
 }
+
+#rubrique #corps p.date, #rubrique #corps p.surtitre, #rubrique #corps p.soustitre, #rubrique #corps p.tag, #rubrique #corps p.lien {
+	text-align: left; }
 
 #rubrique #colonneSecondaire p {
 	text-align: left;
@@ -824,7 +890,7 @@ dl.affiches dd.logo {
 	margin-bottom: 3em;
 }
 
-#chapo p {
+#chapo p, .chapo p {
 	font-weight: bold;
 }
 
