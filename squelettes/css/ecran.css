@@ -488,7 +488,7 @@ p.lienToute {
 	margin: 0 0 2em; }
 	
 	.volumeExpose .imgVolume {
-		float: right; }
+		xfloat: right; }
 		
 	#accueil .volumeExpose .descriptif {
 		margin-top: 1em;
@@ -548,8 +548,18 @@ html #colonneSecondaire dd p {
 }
 
 #article #colonneSecondaire #blocInfosLivre {
-	margin: 4em 0 2em;
+	border: 1px solid #000; border-width: 1px 0;
+	margin: 2em 0 2em;
+	padding: .25em 0;
 }
+
+#article #colonneSecondaire #blocInfosLivre #infosLivre {
+	float: right;
+	width: 160px; }
+
+#article #colonneSecondaire #blocInfosLivre #logoLivre {
+	float: left;
+	width: 160px; }
 
 .secteur194 #blocInfosLivre, .secteur230 #blocInfosLivre {
 	margin-bottom: 4em;
