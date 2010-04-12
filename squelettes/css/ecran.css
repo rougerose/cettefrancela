@@ -616,6 +616,9 @@ html #colonneSecondaire dd p {
 	text-transform: uppercase;
 }
 
+#rubrique .secteur230 #titreRubrique h1, #rubrique .secteur194 #titreRubrique h1 {
+	margin-bottom: 0; }
+
 #rubrique .rubrique196 h1 {
 	margin-bottom: 0;
 }
@@ -712,9 +715,12 @@ html #colonneSecondaire dd p {
 	width: 100px;
 }
 
-#rubrique .secteur199 h1, #rubrique .rubrique230 h1 {
+#rubrique .secteur194 #titreRubrique, #rubrique .rubrique230 #titreRubrique {
 	margin-bottom: 2em;
 }
+
+#rubrique .rubrique199 #titreRubrique h1 {
+	margin-bottom: 2em; }
 
 .actu p.surtitre {
 	font-size: 1em;

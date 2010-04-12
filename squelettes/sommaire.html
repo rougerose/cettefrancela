@@ -86,8 +86,8 @@
                 <div class="grille8 colonne droite">
                     <BOUCLE_volumes(RUBRIQUES){titre==volume}{!par num titre}>
                     <div class="volumeExpose clearfix">
-                        <BOUCLE_volumes_images(ARTICLES){par ordre}{spip_pb_selection.id_rubrique=#ID_RUBRIQUE}>
                         [<h2 class="titreChapitre"><a href="#URL_RUBRIQUE">[(#SURTITRE), ](#TITRE|supprimer_numero)</a></h2>]
+                        <BOUCLE_volumes_images(ARTICLES){par ordre}{spip_pb_selection.id_rubrique=#ID_RUBRIQUE}>
                         
                         <div class="blocInfosLivre grille3">
                              [(#LOGO_ARTICLE||image_reduire{160,0}|inserer_attribut{"class","imgVolume"}|inserer_attribut{"alt",[(#SURTITRE), ][(#TITRE), ][(#SOUSTITRE)]})]
@@ -110,8 +110,8 @@
                             (#DESCRIPTIF|sinon{#INTRODUCTION}|PtoBR)
                             <a href="#URL_ARTICLE" class="suite">suite</a>
                         </p>]
-                        </BOUCLE_volumes_images>
                     </div>
+                    </BOUCLE_volumes_images>
                     </BOUCLE_volumes>
                 </div><!-- fin .colonne droite -->
             </div><!-- fin .grille16 -->

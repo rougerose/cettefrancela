@@ -31,7 +31,11 @@
         
         <div id="corps" class="secteur#ID_SECTEUR rubrique#ID_RUBRIQUE clearfix">
             <div id="contenu">
-                <h1>[(#TITRE|supprimer_numero)]</h1>
+                <div id="titreRubrique">
+                    <h1>[[(#SURTITRE), ](#TITRE|supprimer_numero)]</h1>
+                    [<p class="soustitre">(#SOUSTITRE)</p>]
+                </div>
+                
                 [(#REM) rubrique 194 - chapitre volume 1]
                 [(#ID_RUBRIQUE|in_array{#ARRAY{0,194}}|oui)
                     [(#INCLURE{fond=inc/corpsRubrique194}{env})]
