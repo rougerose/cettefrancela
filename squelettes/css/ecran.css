@@ -1288,10 +1288,13 @@ p.bas {
 	padding-top: .3em;
 }
 
-p.pagination span.on {
+p.pagination strong.on {
 	color: #f30;
 	font-weight: bold;
 }
+
+p.pagination a {
+	font-weight: normal; }
 
 /* réglage des float
 source : http://www.positioniseverything.net/easyclearing.html
