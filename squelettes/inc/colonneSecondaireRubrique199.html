@@ -49,6 +49,9 @@
 </div>
 
 <div class="grille3 colonne gauche">
+    [(#REM) page contact]
+    [(#INCLURE{fond=inc/contact})]
+    
     <B_evenements>
     <dl id="agenda">
         <dt>Prochains rendez-vous</dt>
@@ -58,19 +61,19 @@
     </dl>
     </B_evenements>
     
-    [(#INCLURE{fond=inc/infosLivre}{largeur_image=160})]
-    
-    
 </div><!-- fin div csGauche -->
 
 <div class="grille3 colonne droite">
     
     [(#INCLURE{fond=inc/articleSoutien}{id_secteur})]
-    
-    [(#REM) page contact]
-    [(#INCLURE{fond=inc/contact})]
 
     [(#REM) lettre d'infos ]
     [(#INCLURE{fond=inc/lettreInfos})]
     
 </div><!-- fin div dsDroite -->
+
+<div class="grille6 colonne">
+    
+    [(#INCLURE{fond=inc/infosLivre}{largeur_image=160})]
+    
+</div>

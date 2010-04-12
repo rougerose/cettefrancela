@@ -547,17 +547,17 @@ html #colonneSecondaire dd p {
 	margin-top: 2.3em;
 }
 
-#article #colonneSecondaire #blocInfosLivre {
-	border: 1px solid #000; border-width: 1px 0;
+#article #colonneSecondaire #blocInfosLivre, #rubrique .secteur199 #colonneSecondaire #blocInfosLivre {
+	xborder: 1px solid #000; xborder-width: 1px 0;
 	margin: 2em 0 2em;
-	padding: .25em 0;
+	xpadding: .25em 0;
 }
 
-#article #colonneSecondaire #blocInfosLivre #infosLivre {
+#article #colonneSecondaire #blocInfosLivre #infosLivre, #rubrique .secteur199 #colonneSecondaire #blocInfosLivre #infosLivre {
 	float: right;
 	width: 160px; }
 
-#article #colonneSecondaire #blocInfosLivre #logoLivre {
+#article #colonneSecondaire #blocInfosLivre #logoLivre, #rubrique .secteur199 #colonneSecondaire #blocInfosLivre #logoLivre {
 	float: left;
 	width: 160px; }
 
