@@ -81,7 +81,7 @@
                 [(#REM) test rubrique autre que Actualites : on passe sur une colonne ]
                 [(#ID_RUBRIQUE|=={199}|non)
                     [(#ID_SECTEUR|in_array{#ARRAY{0,194,1,230}}|oui)
-                    [(#INCLURE{fond=inc/infosLivre}{largeur_image=220})]
+                    [(#INCLURE{fond=inc/infosLivreCourant}{largeur_image=220}{env}{secteur=#ID_SECTEUR})]
                     ]
                     
                     [(#REM) test rubrique A propos ? ]
