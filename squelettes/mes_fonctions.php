@@ -1,9 +1,10 @@
 <?php
 // restrictions d'affichage des champs extra relatifs aux volumes
 // voir http://www.spip-contrib.net/Champs-Extras-2
-// include_spip('inc/cextras_autoriser');
-// restreindre les champs 'isbn, prix, disponiblite, presentation' des articles, sur les rubriques 194, 230 (volumes 1 et 2)
-// restreindre_extras('article', array('isbn','disponibilite','presentation','prix'), array(194,230));
+ include_spip('inc/cextras_autoriser');
+// restreindre les champs disponiblite, presentation' et 'presentation_marge des articles sur les rubriques 194, 230 (volumes 1 et 2), même  chose pour les champs surtitre et soustitre des rubriques.
+ restreindre_extras('article', array('disponibilite','presentation','presentation_marge'), array(194,230));
+ restreindre_extras('rubrique', array('surtitre','soustitre'), array(194,230));
 
 
 function nom_mois_court($numdate){
