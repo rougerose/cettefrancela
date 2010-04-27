@@ -75,10 +75,10 @@
                     <BOUCLE_actualites(RUBRIQUES){id_rubrique=199}>
                     <B_total_articles><BOUCLE_total_articles(ARTICLES){id_rubrique}> </BOUCLE_total_articles>#SET{total_articles,#TOTAL_BOUCLE}</B_total_articles>
                     [<h2 class="titreChapitre"><a href="#URL_RUBRIQUE">(#TITRE|supprimer_numero)</a></h2>]
-                    <BOUCLE_derniers_articles_actualites(ARTICLES){id_rubrique}{0,3}{!par date}>
+                    <BOUCLE_derniers_articles_actualites(ARTICLES){id_rubrique}{0,4}{!par date}>
                     [(#INCLURE{fond=inc/article-entry,id_rubrique,id_article})]
                     </BOUCLE_derniers_articles_actualites>
-                    <BOUCLE_suivantes(ARTICLES){id_rubrique}{3,1}{!par date}>
+                    <BOUCLE_suivantes(ARTICLES){id_rubrique}{4,1}{!par date}>
                     <p class="lienToute"><a href="#URL_RUBRIQUE#id#ID_ARTICLE">Toute l&#x27;actualit&eacute; de #NOM_SITE_SPIP ([(#GET{total_articles}) articles disponibles])</a></h2>
                     </BOUCLE_suivantes>
                     </BOUCLE_actualites>
