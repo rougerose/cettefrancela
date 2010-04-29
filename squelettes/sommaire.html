@@ -113,6 +113,32 @@
                     </div>
                     </BOUCLE_volumes_images>
                     </BOUCLE_volumes>
+
+					<B_evenements>
+					<div id="ag" class="agenda vcalendar">
+						<h2 class="titreChapitre">Rendez-vous, d&eacute;bats, recontres&hellip; &agrave; venir</h2>
+						<BOUCLE_evenements(EVENEMENTS){id_rubrique=199}{age<0}{par date}{statut=publie}>
+						<dl class="vevent">
+							[(#HORAIRE|=={oui}|oui)
+							<dt>[<span class="jour">(#DATE_DEBUT|jour)][ (#DATE_DEBUT|nom_mois_court)</span>][ (#DATE_DEBUT|annee)]</dt>
+							<dd class="titre"><a href="#URL_ARTICLE" class="url summary">#TITRE</a></dd>
+							<dd><span class="dtstart">[(#DATE_DEBUT|heures)][ h (#DATE_DEBUT|minutes)]<span class="value-title" title="[(#DATE_DEBUT|affdate{c})]"></span></span> &#x2192; <span class="dtend">[(#DATE_FIN|heures)][ h (#DATE_FIN|minutes)]<span class="value-title" title="[(#DATE_FIN|affdate{c})]"></span></span></dd>
+							]
+							[(#HORAIRE|=={non}|oui)
+							<dt><span class="dtstart"><span class="value-title" title="[(#DATE_DEBUT|affdate{c})]"></span>[<span class="jour">(#DATE_DEBUT|jour)][ (#DATE_DEBUT|nom_mois_court)</span>]</span><span class="dtend">[ (#DATE_DEBUT|annee)]<span class="value-title" title="[(#DATE_FIN|affdate{c})]"></span></span></dt>
+							<dd class="titre"><a href="#URL_ARTICLE" class="url summary">#TITRE</a></dd>
+							]
+							[<dd class="description">(#DESCRIPTIF)</dd>]
+							[<dd class="location">(#LIEU)[<p>(#ADRESSE)</p>]</dd>]
+							[(#LIEU|=={''}|oui)
+							[<dd class="location"><p>adresse : (#ADRESSE)</p></dd>]
+							]
+						</dl>
+				        </BOUCLE_evenements>
+					</div>
+					</B_evenements>
+
+
                 </div><!-- fin .colonne droite -->
             </div><!-- fin .grille16 -->
         </div><!-- fin div corps -->

@@ -127,6 +127,7 @@ ol.spip li {
 h2.titreChapitre {
 	border-bottom: 1px solid #000;
 	font-size: 1.8em;
+	font
 	line-height: normal;
 	text-transform: uppercase;
 }
@@ -330,6 +331,8 @@ p#baseline {
 #accueil h2.titreChapitre, #accueil #resumeLivre h2 {
 	font-size: 1.7em;
 }
+
+.agenda h2.titreChapitre { font-weight: bold; xmargin-bottom: 1em; }
 
 #accueil h3.titreArticle {
 	font-size: 1.5em;
@@ -755,7 +758,7 @@ html #colonneSecondaire dd p {
 }
 
 
-/* Actualités : événements */
+/* Agenda : rubrique Actualité */
 
 .vevent dt, .vevent dd {
 	border-bottom: 1px solid #eee;
@@ -790,16 +793,39 @@ span.libelle {
 .breveLien #meta p span.libelle {
 	width: 80px; }
 
-#article #meta p span.libelle {
-	margin-left: 0;
-	/*display: inline;
-	float: none;
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+#article #meta p span.libelle { margin-left: 0; }
+
+/* Agenda : page d'accueil */
+
+.agenda dl {
+	border-bottom: 1px solid #eee;
+	padding-bottom: 1em; }
+
+.agenda dl dt, .agenda dl dd.titre {
+	font-size: 13px; }
+
+.agenda .vevent dt {
 	font-weight: normal;
-	width: auto;
-	margin-left: 0;
-	padding-right: 10px;*/
-}
+	position: relative; left: 0; top: 1.4em;
+	border: 0;
+	padding: 0;
+	width: 6em; }
+	
+.agenda .vevent dt span.jour {
+	color: #808080;
+	font-weight: bold; }
+
+.agenda .vevent dd {
+	margin: 0 0 0 10em;
+	border: 0;
+	padding: 0; }
+
+.agenda .vevent dd.titre {
+	margin: 0; margin-left: 8.5em;
+	padding: 0;
+	xmargin-bottom: .5em; }
+
+.agenda .vevent dd p { margin-bottom: 0; font-size: 13px; }
 
 /* Actualités : formulaires de tri */
 
@@ -934,6 +960,8 @@ dl.affiches dd.logo {
 #article p.date strong {
 	font-size: 1.1em;
 }
+
+#article #texte { width: 580px; }
 
 #texte p {
 	text-align: justify;
