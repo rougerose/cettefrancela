@@ -122,10 +122,10 @@
 							[(#HORAIRE|=={oui}|oui)
 							<dt>[<span class="jour">(#DATE_DEBUT|jour)][ (#DATE_DEBUT|nom_mois_court)</span>][ (#DATE_DEBUT|annee)]</dt>
 							<dd class="titre"><a href="#URL_ARTICLE" class="url summary">#TITRE</a></dd>
-							<dd><span class="dtstart">[(#DATE_DEBUT|heures)][ h (#DATE_DEBUT|minutes)]<span class="value-title" title="[(#DATE_DEBUT|affdate{c})]"></span></span> &#x2192; <span class="dtend">[(#DATE_FIN|heures)][ h (#DATE_FIN|minutes)]<span class="value-title" title="[(#DATE_FIN|affdate{c})]"></span></span></dd>
+							<dd><span class="dtstart">[(#DATE_DEBUT|heures)][ h (#DATE_DEBUT|minutes)]<span class="value" title="[(#DATE_DEBUT|affdate{c})]"></span></span> &#x2192; <span class="dtend">[(#DATE_FIN|heures)][ h (#DATE_FIN|minutes)]<span class="value" title="[(#DATE_FIN|affdate{c})]"></span></span></dd>
 							]
 							[(#HORAIRE|=={non}|oui)
-							<dt><span class="dtstart"><span class="value-title" title="[(#DATE_DEBUT|affdate{c})]"></span>[<span class="jour">(#DATE_DEBUT|jour)][ (#DATE_DEBUT|nom_mois_court)</span>]</span><span class="dtend">[ (#DATE_DEBUT|annee)]<span class="value-title" title="[(#DATE_FIN|affdate{c})]"></span></span></dt>
+							<dt><span class="dtstart"><span class="value" title="[(#DATE_DEBUT|affdate{c})]"></span>[<span class="jour">(#DATE_DEBUT|jour)][ (#DATE_DEBUT|nom_mois_court)</span>]</span><span class="dtend">[ (#DATE_DEBUT|annee)]<span class="value" title="[(#DATE_FIN|affdate{c})]"></span></span></dt>
 							<dd class="titre"><a href="#URL_ARTICLE" class="url summary">#TITRE</a></dd>
 							]
 							[<dd class="description">(#DESCRIPTIF)</dd>]
