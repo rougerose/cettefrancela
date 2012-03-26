@@ -3,21 +3,21 @@ $(document).ready(function(){
     // =================================================
     // faire apparaitre la grille de base (jquery)
     // =================================================
-    /*
+
     $("body").append("<button id='toggle'>grille</button>");
     $("#toggle").click(function () {
 	      $("body").toggleClass("grille");
 	});
-	*/
+
 	// =================================================
     // icone agrandissement image
     // =================================================
-	
-	// ajout de la fonction onAjaxLoad utilisée par Spip : 
-	// il semble qu'avec la découpe des articles + chargement en ajax de la nouvelle page, 
+
+	// ajout de la fonction onAjaxLoad utilisée par Spip :
+	// il semble qu'avec la découpe des articles + chargement en ajax de la nouvelle page,
 	// jquery ne prend plus rien en compte. En plus réinitialisation de shadowbox avec désactivation
 	// de la configuration automatique
-	
+
 	onAjaxLoad(function(){
 		$("a.sbImage").hover(
 			function() {
@@ -44,13 +44,13 @@ $(document).ready(function(){
 			$(this).find("span.agrandir:last").remove();
 		}
 	);
-	
+
 	// =================================================
     // accordeon page d'accueil
     // =================================================
 	$("#accordion").accordion({ header: "h3", autoHeight: false });
-	
-	
+
+
     var $slide = $('#slider .slide');
     var $conteneur = $('#slider #slidesConteneur');
     // calculate a new width for the container (so it holds all panels)
@@ -64,7 +64,7 @@ $(document).ready(function(){
         $(this).removeClass("over");
     });
 
-	
+
 	$('#screen').serialScroll({
 	    target:'#sections',
         		items:'li', // Selector to the items ( relative to the matched elements, '#sections' in this case )
@@ -75,7 +75,7 @@ $(document).ready(function(){
         		duration:700,// Length of the animation (if you scroll 2 axes and use queue, then each axis take half this time)
         		force:true, // Force a scroll to the element specified by 'start' (some browsers don't reset on refreshes)
 	});
-	
+
 	$("#slider").fadeIn("slow").serialScroll({
 	    target: '#slides',
 	    items: '.slide',
@@ -86,11 +86,11 @@ $(document).ready(function(){
 	    duration: 700,
 	    force: true
 	});
-    
-	
-	
-	
-	
+
+
+
+
+
 });
 
 	// =================================================
