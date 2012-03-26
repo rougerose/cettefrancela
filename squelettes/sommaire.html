@@ -6,114 +6,70 @@
 <head>
 	<title>[(#NOM_SITE_SPIP|textebrut)]</title>
 	[<meta name="description" content="(#DESCRIPTIF_SITE_SPIP|couper{150}|textebrut)" />]
-    
-    <INCLURE{fond=inc-head}>
-    
+
+	<INCLURE{fond=inc-head}>
+
 </head>
 
 <body id="accueil">
-    <div id="enveloppe">
-        <div id="entete">
-            <h1 id="logo">
-                [(#LOGO_SITE_SPIP||inserer_attribut{"alt",#NOM_SITE_SPIP}|sinon{#NOM_SITE_SPIP})]
-            </h1>
-            
-            [(#INCLURE{fond=inc/baseline})]
-            
-            [(#INCLURE{fond=inc/menuPrincipal}{skel=#SQUELETTE})]
-            
-            #FORMULAIRE_RECHERCHE
-            
-        </div><!-- fin div entete -->
-        
-        <div id="corps">
-            <div id="slider">
-                <!-- TODO à terminer
-                <ul id="navigationSlider">
-                    <BOUCLE_slider_controleur(ARTICLES){par ordre}{spip_pb_selection.id_rubrique=0}>
-                    <li><a href="#">#COMPTEUR_BOUCLE</a></li>
-                    #SET{compteur,#COMPTEUR_BOUCLE}
-                    </BOUCLE_slider_controleur>
-                </ul>
-                -->
-                <div class="boutonSlider precedent">&nbsp;</div>
-                <div id="slides">[(#REM) calcul de la largeur : 940 px pour la colonne, 20 px (10 px pour chaque image) ]
-                    <div id="slidesConteneur">
-                        <BOUCLE_slider_images(ARTICLES){par ordre}{spip_pb_selection.id_rubrique=0}>
-                        <div class="slide clearfix">
-                            <BOUCLE_rubrique_parente(RUBRIQUES){id_rubrique}>
-                            #LOGO_RUBRIQUE
-                            </BOUCLE_rubrique_parente>
-                            <div class="descriptionSlide grille7">
-                                [<h2>(#SURTITRE)</h2>]
-                                [<h3>(#TITRE|supprimer_numero)</h3>]
-                                [<p class="soustitre">(#SOUSTITRE)</p>]
-                                [(#DISPONIBILITE|=={1}|oui)
-                                <div class="presentation disponible clearfix">
-                                    [(#PRESENTATION|propre)]
-                                </div>
-                                ]
-                                [(#DISPONIBILITE|=={2}|oui)
-                                <div class="presentation epuise clearfix">
-                                    <p class="epuise">livre épuisé</p>
-                                    [(#PRESENTATION|propre)]
-                                </div>
-                                ]
-                                
-                                [(#REM) TODO reprendre la fleche du lien ci-dessous ]
-                                <p class="lienArticle"><a href="#URL_ARTICLE" class="">En savoir plus</a></p>
-                            </div><!-- fin .descriptionSlide -->
-                        </div><!-- fin .slide -->
-                        </BOUCLE_slider_images>
-                    </div><!-- fin #slidesConteneur -->
-                </div><!-- fin #slides -->
-                <div class="boutonSlider suivant">&nbsp;</div>
-            </div><!-- fin #slider -->
-            
-            <div class="grille16 conteneur clearfix">
-                <div class="grille8 colonne gauche">
-                    <BOUCLE_actualites(RUBRIQUES){id_rubrique=199}>
-                    <B_total_articles><BOUCLE_total_articles(ARTICLES){id_rubrique}> </BOUCLE_total_articles>#SET{total_articles,#TOTAL_BOUCLE}</B_total_articles>
-                    [<h2 class="titreChapitre"><a href="#URL_RUBRIQUE">(#TITRE|supprimer_numero)</a></h2>]
-                    <BOUCLE_derniers_articles_actualites(ARTICLES){id_rubrique}{0,4}{!par date}>
-                    [(#INCLURE{fond=inc/article-entry,id_rubrique,id_article})]
-                    </BOUCLE_derniers_articles_actualites>
-                    <BOUCLE_suivantes(ARTICLES){id_rubrique}{4,1}{!par date}>
-                    <p class="lienToute"><a href="#URL_RUBRIQUE#id#ID_ARTICLE">Toute l&#x27;actualit&eacute; de #NOM_SITE_SPIP ([(#GET{total_articles}) articles disponibles])</a></h2>
-                    </BOUCLE_suivantes>
-                    </BOUCLE_actualites>
-                </div><!-- fin colonne gauche -->
-                <div class="grille8 colonne droite">
-                    <BOUCLE_volumes(RUBRIQUES){titre==volume}{!par num titre}>
-                    <div class="volumeExpose clearfix">
-                        [<h2 class="titreChapitre"><a href="#URL_RUBRIQUE">[(#SURTITRE), ](#TITRE|supprimer_numero)</a></h2>]
-                        <BOUCLE_volumes_images(ARTICLES){par ordre}{spip_pb_selection.id_rubrique=#ID_RUBRIQUE}>
-                        
-                        <div class="blocInfosLivre grille3">
-                             [(#LOGO_ARTICLE||image_reduire{160,0}|inserer_attribut{"class","imgVolume"}|inserer_attribut{"alt",[(#SURTITRE), ][(#TITRE), ][(#SOUSTITRE)]})]
+	<div id="enveloppe">
+		<div id="entete">
+			<h1 id="logo">
+				[(#LOGO_SITE_SPIP||inserer_attribut{"alt",#NOM_SITE_SPIP}|sinon{#NOM_SITE_SPIP})]
+			</h1>
 
-                            [(#DISPONIBILITE|=={1}|oui)
-                            <dl>
-                                <dt>Disponible en librairie</dt>
-                                <dd>[(#PRESENTATION_MARGE|propre)]</dd>
-                            </dl>
-                            ]
-                            [(#DISPONIBILITE|=={2}|oui)
-                            <dl>
-                                <dt>Livre &eacute;puis&eacute;</dt>
-                                <dd>[(#PRESENTATION_MARGE|propre)]</dd>
-                            </dl>
-                            ]
-                        </div>
-                        
-                        [<p class="descriptif">
-                            (#DESCRIPTIF|sinon{#INTRODUCTION}|PtoBR)
-                            <a href="#URL_ARTICLE" class="suite">suite</a>
-                        </p>]
-                    </div>
-                    </BOUCLE_volumes_images>
-                    </BOUCLE_volumes>
+			[(#INCLURE{fond=inc/baseline})]
 
+			[(#INCLURE{fond=inc/menuPrincipal}{skel=#SQUELETTE})]
+
+			#FORMULAIRE_RECHERCHE
+
+		</div><!-- fin div entete -->
+
+		<div id="corps">
+			<div class="grille16 conteneur clearfix">
+				<div class="grille8 colonne gauche">
+					<BOUCLE_actualites(RUBRIQUES){id_rubrique=199}>
+					<B_total_articles><BOUCLE_total_articles(ARTICLES){id_rubrique}> </BOUCLE_total_articles>#SET{total_articles,#TOTAL_BOUCLE}</B_total_articles>
+					[<h2 class="titreChapitre"><a href="#URL_RUBRIQUE">(#TITRE|supprimer_numero)</a></h2>]
+					<BOUCLE_derniers_articles_actualites(ARTICLES){id_rubrique}{0,4}{!par date}>
+					[(#INCLURE{fond=inc/article-entry,id_rubrique,id_article})]
+					</BOUCLE_derniers_articles_actualites>
+					<BOUCLE_suivantes(ARTICLES){id_rubrique}{4,1}{!par date}>
+					<p class="lienToute"><a href="#URL_RUBRIQUE#id#ID_ARTICLE">Toute l&#x27;actualit&eacute; de #NOM_SITE_SPIP ([(#GET{total_articles}) articles disponibles])</a></p>
+					</BOUCLE_suivantes>
+					</BOUCLE_actualites>
+				</div><!-- fin colonne gauche -->
+				<div class="grille8 colonne droite">
+					<BOUCLE_volumes(RUBRIQUES){titre==volume}{!par num titre}>
+					<div class="volumeExpose clearfix">
+						[<h2 class="titreChapitre"><a href="#URL_RUBRIQUE">[(#SURTITRE), ](#TITRE|supprimer_numero)</a></h2>]
+
+						<BOUCLE_volumes_images(ARTICLES){par ordre}{spip_pb_selection.id_rubrique=#ID_RUBRIQUE}>
+						<div class="blocInfosLivre grille3">
+								[(#LOGO_ARTICLE||image_reduire{160,0}|inserer_attribut{"class","imgVolume"}|inserer_attribut{"alt",[(#SURTITRE), ][(#TITRE), ][(#SOUSTITRE)]})]
+
+							[(#DISPONIBILITE|=={1}|oui)
+							<dl>
+								<dt>Disponible en librairie</dt>
+								<dd>[(#PRESENTATION_MARGE|propre)]</dd>
+							</dl>
+							]
+							[(#DISPONIBILITE|=={2}|oui)
+							<dl>
+								<dt>Livre &eacute;puis&eacute;</dt>
+								<dd>[(#PRESENTATION_MARGE|propre)]</dd>
+							</dl>
+							]
+						</div>
+
+						[<p class="descriptif">
+							(#DESCRIPTIF|sinon{#INTRODUCTION}|PtoBR)
+							<a href="#URL_ARTICLE" class="suite">suite</a>
+						</p>]
+						</BOUCLE_volumes_images>
+					</div>
+					</BOUCLE_volumes>
 					<B_evenements>
 					<div id="ag" class="agenda vcalendar">
 						<h2 class="titreChapitre">Rendez-vous, d&eacute;bats, recontres&hellip; &agrave; venir</h2>
@@ -134,26 +90,23 @@
 							[<dd class="location"><p>adresse : (#ADRESSE)</p></dd>]
 							]
 						</dl>
-				        </BOUCLE_evenements>
+						</BOUCLE_evenements>
 					</div>
 					</B_evenements>
+				</div><!-- fin .colonne droite -->
+			</div><!-- fin .grille16 -->
+		</div><!-- #corps -->
+		<div id="piedPage">
+			<hr class="invisible" />
+			<ul id="filAriane">
+				<li class="on">Accueil</li>
+			</ul>
 
+			[(#INCLURE{fond=inc/navigationPlan})]
+			[(#INCLURE{fond=inc/piedPageLogo})]
 
-                </div><!-- fin .colonne droite -->
-            </div><!-- fin .grille16 -->
-        </div><!-- fin div corps -->
-        
-        <div id="piedPage">
-            <hr class="invisible" />
-            <ul id="filAriane">
-                <li class="on">Accueil</li>
-            </ul>
-            
-            [(#INCLURE{fond=inc/navigationPlan})]
-            [(#INCLURE{fond=inc/piedPageLogo})]
-            
-        </div><!-- fin div pied de page -->
-        
-    </div><!-- fin div enveloppe -->
+		</div><!-- fin div pied de page -->
+
+	</div><!-- fin div enveloppe -->
 </body>
 </html>
