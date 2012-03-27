@@ -4,7 +4,7 @@
  include_spip('inc/cextras_autoriser');
 // restreindre les champs disponiblite, presentation' et 'presentation_marge des articles sur les rubriques 194, 230 (volumes 1 et 2), même  chose pour les champs surtitre et soustitre des rubriques.
  restreindre_extras('article', array('disponibilite','presentation','presentation_marge'), array(194,230));
- restreindre_extras('rubrique', array('surtitre','soustitre'), array(194,230));
+ restreindre_extras('rubrique', array('surtitre','soustitre','pres','pres_marge','dispo'), array(194,230,236,237));
 
 
 function nom_mois_court($numdate){
