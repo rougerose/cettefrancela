@@ -49,19 +49,10 @@
 						<BOUCLE_volumes_images(ARTICLES){par ordre}{spip_pb_selection.id_rubrique=#ID_RUBRIQUE}>
 						<div class="blocInfosLivre grille3">
 								[(#LOGO_ARTICLE||image_reduire{160,0}|inserer_attribut{"class","imgVolume"}|inserer_attribut{"alt",[(#SURTITRE), ][(#TITRE), ][(#SOUSTITRE)]})]
-
-							[(#DISPONIBILITE|=={1}|oui)
 							<dl>
-								<dt>Disponible en librairie</dt>
+								<dt>Informations</dt>
 								<dd>[(#PRESENTATION_MARGE|propre)]</dd>
 							</dl>
-							]
-							[(#DISPONIBILITE|=={2}|oui)
-							<dl>
-								<dt>Livre &eacute;puis&eacute;</dt>
-								<dd>[(#PRESENTATION_MARGE|propre)]</dd>
-							</dl>
-							]
 						</div>
 
 						[<p class="descriptif">
