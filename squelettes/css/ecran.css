@@ -581,6 +581,8 @@ html #colonneSecondaire dd p {
 	text-transform: uppercase;
 }
 
+
+
 #rubrique .secteur230 #titreRubrique h1, #rubrique .secteur194 #titreRubrique h1, #rubrique .rubrique236 #titreRubrique h1, #rubrique .rubrique237 #titreRubrique h1 {
 	margin-bottom: 0; }
 
@@ -680,7 +682,7 @@ html #colonneSecondaire dd p {
 	width: 100px;
 }
 
-#rubrique .secteur194 #titreRubrique, #rubrique .rubrique230 #titreRubrique {
+#rubrique .secteur194 #titreRubrique, #rubrique .rubrique230 #titreRubrique, #rubrique .secteur236 #titreRubrique, #rubrique .secteur237 #titreRubrique {
 	margin-bottom: 2em;
 }
 
