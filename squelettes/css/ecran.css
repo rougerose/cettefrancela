@@ -439,14 +439,13 @@ p.lienToute {
 	color: #808080;
 	text-transform: uppercase;
 	margin-bottom: .1em;
-	float: right; clear: right; }
+	clear: right; }
 
 .descriptionSlide .presentation p strong {
 	color: #000; }
 
 .descriptionSlide .disponible p:first-child, .descriptionSlide .epuise p+p {
 	font-size: 16px;
-	border-bottom: 1px solid #000;
 	padding-bottom: .1em; }
 
 .descriptionSlide .epuise p:last-child {
@@ -467,9 +466,6 @@ p.lienToute {
 /* pour l'accueil */
 .volumeExpose {
 	margin: 0 0 2em; }
-
-	.volumeExpose .imgVolume {
-		xfloat: right; }
 
 	#accueil .volumeExpose .descriptif {
 		margin-top: 1em;
