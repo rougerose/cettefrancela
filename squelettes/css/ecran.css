@@ -532,11 +532,11 @@ html #colonneSecondaire dd p {
 	float: left;
 	width: 160px; }
 
-.secteur194 #blocInfosLivre, .secteur230 #blocInfosLivre { margin-bottom: 4em; }
+.secteur194 #blocInfosLivre, .secteur230 #blocInfosLivre { xmargin-bottom: 4em; }
 
 #blocInfosLivre p#logoLivre { margin-bottom: 0; }
 
-#colonneSecondaire #infosLivre { margin: .3em 0 0; }
+#colonneSecondaire #infosLivre { xmargin: .3em 0 0; }
 
 /* rubriques */
 

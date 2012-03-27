@@ -52,26 +52,21 @@
 				</div>
 			</div>
 			<div id="colonneSecondaire" class="colonne">
-				[(#REM) test rubrique autre que Actualites : on passe sur une colonne ]
-				[(#ID_RUBRIQUE|=={199}|non)
-					[(#ID_SECTEUR|in_array{#ARRAY{0,194,1,230}}|oui)
-						[(#INCLURE{fond=inc/infosLivreCourant}{largeur_image=220}{env}{secteur=#ID_SECTEUR})]
-					]
+				<div id="blocInfosLivre" class="clearfix">
+				    <dl id="infosLivre">
+				        <dt>[(#TITRE|supprimer_numero)]</dt>
+				        <dd class="descriptif">[(#PRES_MARGE)]</dd>
+				    </dl>
+				</div>
 
-					[(#REM) test rubrique A propos ? ]
-					[(#ID_RUBRIQUE|=={203}|oui)
-						[(#INCLURE{fond=inc/articleAPropos})]
-					]
+				[(#INCLURE{fond=inc/articleSoutien}{id_secteur})]
 
-					[(#INCLURE{fond=inc/articleSoutien}{id_secteur})]
+				[(#REM) page contact]
+				[(#INCLURE{fond=inc/contact})]
 
-					[(#REM) page contact]
-					[(#INCLURE{fond=inc/contact})]
+				[(#REM) lettre d'infos ]
+				[(#INCLURE{fond=inc/lettreInfos})]
 
-					[(#REM) lettre d'infos ]
-					[(#INCLURE{fond=inc/lettreInfos})]
-
-				]
 			</div><!-- fin colonneSecondaire -->
 
 		</div><!-- fin div corps -->

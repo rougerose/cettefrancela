@@ -1,18 +1,9 @@
 <div id="blocInfosLivre" class="clearfix">
     <BOUCLE_volume_image(ARTICLES){par ordre}{spip_pb_selection.id_rubrique=#ENV{secteur}}>
     [<p id="logoLivre">(#LOGO_ARTICLE||image_reduire{#ENV{largeur_image},0}|inserer_attribut{"class","imgVolume"}|inserer_attribut{"alt",[(#SURTITRE), ][(#TITRE), ][(#SOUSTITRE)]})</p>]
-
-    [(#DISPONIBILITE|=={1}|oui)
-    <dl id="infosLivre">
-        <dt>Disponible en librairie</dt>
+	<dl id="infosLivre">
+        <dt>[[(#SURTITRE), ](#TITRE|supprimer_numero)]</dt>
         <dd class="descriptif">[(#PRESENTATION_MARGE|propre)]</dd>
     </dl>
-    ]
-    [(#DISPONIBILITE|=={2}|oui)
-    <dl id="infosLivre">
-        <dt>Livre &eacute;puis&eacute;</dt>
-        <dd class="descriptif">[(#PRESENTATION_MARGE|propre)]</dd>
-    </dl>
-    ]
     </BOUCLE_volume_image>
 </div>
