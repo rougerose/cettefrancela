@@ -1,0 +1,14 @@
+<BOUCLE_rubrique(RUBRIQUES){id_rubrique}>
+<dl>
+    <dt><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></dt>
+    <BOUCLE_articles_actu(ARTICLES){id_rubrique}{id_rubrique=199}{0,5}{!par date}{doublons actu}>
+    <dd><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></dd>
+    </BOUCLE_articles_actu>
+    <BOUCLE_articles_autres(ARTICLES){id_rubrique}{id_rubrique!=199}{par num titre}{doublons invisible}{doublons actu}>
+    <dd><a href="#URL_ARTICLE">[(#TITRE|supprimer_numero)]</a></dd>
+    </BOUCLE_articles_autres>
+    <BOUCLE_sousrubriques(RUBRIQUES){id_parent}{par num titre}>
+    <dd><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></dd>
+    </BOUCLE_sousrubriques>
+</dl>
+</BOUCLE_rubrique>
