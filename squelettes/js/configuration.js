@@ -3,12 +3,12 @@ $(document).ready(function(){
     // =================================================
     // faire apparaitre la grille de base (jquery)
     // =================================================
-
+/*
     $("body").append("<button id='toggle'>grille</button>");
     $("#toggle").click(function () {
 	      $("body").toggleClass("grille");
 	});
-
+*/
 	// =================================================
     // icone agrandissement image
     // =================================================
