@@ -1,0 +1,98 @@
+<BOUCLE_p(RUBRIQUES){id_rubrique}>
+<?xml version="1.0" encoding="#CHARSET"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="#LANG">
+<head>
+	<title>[(#NOM_SITE_SPIP|textebrut)][ / (#TITRE|supprimer_numero|textebrut)]</title>
+	[<meta name="description" content="(#DESCRIPTIF|sinon{#INTRODUCTION}|couper{200}|textebrut)" />]
+
+	<INCLURE{fond=inc-head}>
+
+
+
+</head>
+
+<body id="rubrique">
+	<div id="enveloppe">
+		<div id="entete">
+			<div id="logo">
+				[(#INCLURE{fond=inc/logoSite})]
+			</div>
+
+			[(#INCLURE{fond=inc/baseline})]
+
+			[(#INCLURE{fond=inc/menuPrincipal}{skel=#SQUELETTE}{id_rubrique}{rubrique=#ENV{id_rubrique}})]
+
+			#FORMULAIRE_RECHERCHE
+
+		</div><!-- fin div entete -->
+
+		<div id="corps" class="secteur#ID_SECTEUR rubrique#ID_RUBRIQUE clearfix">
+			[(#SET{height,[(#LOGO_RUBRIQUE||image_reduire{470,0}|extraire_attribut{height})]})]
+			[<p class="logo-rubrique"[ style="height:(#GET{height})px;"]>(#LOGO_RUBRIQUE||image_reduire{470,0})</p>]
+			<div id="contenu">
+				<div id="titreRubrique">
+					<h1>[[(#SURTITRE), ](#TITRE|supprimer_numero)]</h1>
+					[<p class="soustitre">(#SOUSTITRE)</p>]
+				</div>
+
+				<div class="section rubrique#ID_RUBRIQUE clearfix">
+
+					<div class="principal">
+						<div id="texte" class="colonne st">
+							[(#TEXTE|image_reduire{460,0})]
+							[<div id="notes">
+								<h3>Notes</h3>
+								(#NOTES)
+							</div>]
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="colonneSecondaire" class="colonne">
+				[(#REM) test rubrique autre que Actualites : on passe sur une colonne ]
+				[(#ID_RUBRIQUE|=={199}|non)
+					[(#ID_SECTEUR|in_array{#ARRAY{0,194,1,230}}|oui)
+						[(#INCLURE{fond=inc/infosLivreCourant}{largeur_image=220}{env}{secteur=#ID_SECTEUR})]
+					]
+
+					[(#REM) test rubrique A propos ? ]
+					[(#ID_RUBRIQUE|=={203}|oui)
+						[(#INCLURE{fond=inc/articleAPropos})]
+					]
+
+					[(#INCLURE{fond=inc/articleSoutien}{id_secteur})]
+
+					[(#REM) page contact]
+					[(#INCLURE{fond=inc/contact})]
+
+					[(#REM) lettre d'infos ]
+					[(#INCLURE{fond=inc/lettreInfos})]
+
+				]
+			</div><!-- fin colonneSecondaire -->
+
+		</div><!-- fin div corps -->
+
+		<div id="piedPage">
+
+			<hr class="invisible" />
+			<ul id="filAriane">
+				<li><a href="#URL_SITE_SPIP" rel="home">Accueil</a></li>
+				<BOUCLE_hierarchie(HIERARCHIE){id_rubrique}>
+				<li><a href="#URL_RUBRIQUE">[(#TITRE|supprimer_numero)]</a></li>
+				</BOUCLE_hierarchie>
+				<li class="on">[(#TITRE|supprimer_numero)]</li>
+			</ul>
+
+			[(#INCLURE{fond=inc/navigationPlan})]
+			[(#INCLURE{fond=inc/piedPageLogo})]
+
+		</div><!-- fin div pied de page -->
+
+	</div><!-- fin div enveloppe -->
+</body>
+</html>
+</BOUCLE_p>

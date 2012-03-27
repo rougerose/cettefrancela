@@ -1,0 +1,43 @@
+<div id="slider">
+	<!-- TODO à terminer
+	<ul id="navigationSlider">
+	<BOUCLE_slider_controleur(ARTICLES){par ordre}{spip_pb_selection.id_rubrique=0}>
+	<li><a href="#">#COMPTEUR_BOUCLE</a></li>
+	#SET{compteur,#COMPTEUR_BOUCLE}
+	</BOUCLE_slider_controleur>
+	</ul>
+	-->
+	<div class="boutonSlider precedent"><span>précédent</span></div>
+	<div id="slides">[(#REM) calcul de la largeur : 940 px pour la colonne, 20 px (10 px pour chaque image) ]
+		<div id="slidesConteneur">
+			<BOUCLE_slider_images(ARTICLES){par ordre}{spip_pb_selection.id_rubrique=0}>
+			<div class="slide clearfix">
+				<BOUCLE_rubrique_parente(RUBRIQUES){id_rubrique}>
+				#LOGO_RUBRIQUE
+
+				<div class="descriptionSlide grille7">
+					[<h2>(#SURTITRE)</h2>]
+					[<h3>(#TITRE|supprimer_numero)</h3>]
+					[<p class="soustitre">(#SOUSTITRE)</p>]
+					[(#DISPO|=={1}|oui)
+					<div class="presentation disponible clearfix">
+						[(#PRES)]
+					</div>
+					]
+					[(#DISPO|=={2}|oui)
+					<div class="presentation epuise clearfix">
+						<p class="epuise">livre épuisé</p>
+						[(#PRES)]
+					</div>
+					]
+
+					[(#REM) TODO reprendre la fleche du lien ci-dessous ]
+					<p class="lienArticle"><a href="#URL_RUBRIQUE" class="">En savoir plus</a></p>
+				</div><!-- fin .descriptionSlide -->
+				</BOUCLE_rubrique_parente>
+			</div><!-- fin .slide -->
+			</BOUCLE_slider_images>
+		</div><!-- fin #slidesConteneur -->
+	</div><!-- fin #slides -->
+	<div class="boutonSlider suivant"><span>suivant</span></div>
+</div><!-- fin #slider -->

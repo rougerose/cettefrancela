@@ -26,13 +26,12 @@ body {
 	margin: 3em 0 0;
 }
 
-#rubrique div.secteur194 #contenu, #rubrique div.secteur193 #contenu, #rubrique div.secteur230 #contenu, #recherche #contenu, #mot #contenu {
-	width: 700px;
-}
+#rubrique div.secteur194 #contenu, #rubrique div.secteur193 #contenu, #recherche #contenu, #mot #contenu { width: 700px; }
 
-#rubrique div.secteur199 #contenu, #rubrique .lien #contenu {
-	width: 580px;
-}
+/* volume 2 et suivants */
+#rubrique div.secteur230 #contenu, #rubrique div.secteur236 #contenu, #rubrique div.secteur237 #contenu { width: 580px; margin-right: 60px }
+
+#rubrique div.secteur199 #contenu, #rubrique .lien #contenu { width: 580px; }
 
 #rubrique div.secteur193 #contenu, #rubrique div.secteur199 #contenu, #rubrique .lien #contenu, #recherche #contenu, #mot #contenu {
 	float: left;
@@ -43,7 +42,7 @@ body {
 	margin-left: 20px;
 }
 
-#rubrique div.secteur193 #colonneSecondaire, #rubrique div.secteur194 #colonneSecondaire, #rubrique div.secteur230 #colonneSecondaire, #recherche #colonneSecondaire, #mot #colonneSecondaire {
+#rubrique div.secteur193 #colonneSecondaire, #rubrique div.secteur194 #colonneSecondaire, #rubrique div.secteur230 #colonneSecondaire, #rubrique div.secteur236 #colonneSecondaire, #rubrique div.secteur237 #colonneSecondaire, #recherche #colonneSecondaire, #mot #colonneSecondaire {
 	width: 220px;
 }
 

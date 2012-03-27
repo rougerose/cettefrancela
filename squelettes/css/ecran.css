@@ -389,30 +389,29 @@ p.lienToute {
 
 /* Slider : navigation */
 
-#navigationSlider {
-	float: right; }
+#navigationSlider { float: right; }
 
-	#navigationSlider li {
-		display: inline; }
+	#navigationSlider li { display: inline; }
 
 .boutonSlider {
 	cursor: pointer;
 	position: absolute; top: 0; z-index: 999;
-	height: 18px; width: 18px;
-	background: url(../images/navigationSlider-sprite.png) no-repeat 0 0; }
-
-.boutonSlider.precedent {
-	right: 24px; }
-
-.boutonSlider.suivant {
-	background-position: -19px 0;
-	right: 0; }
-
-.boutonSlider.precedent.over {
-	background-position: 0 -19px; }
-
-.boutonSlider.suivant.over {
-	background-position: -19px -19px; }
+	height: 420px; width: 40px;
+	overflow: hidden;
+	font-size: 0; }
+.boutonSlider.suivant { right: 0; }
+	.boutonSlider span {
+		display: block;
+		height: 80px; width: 40px;
+		margin-top: 130px;
+		opacity: .1;
+		background: url('../images/slider-fleches.png') no-repeat 0 0;
+		-webkit-transition: opacity .3s linear;
+		   -moz-transition: opacity .3s linear;
+		     -o-transition: opacity .3s linear;
+		        transition: opacity .3s linear; }
+	.boutonSlider.suivant span { background-position: -40px 0; }
+.boutonSlider.over span { opacity: 1; }
 
 /* Slider : image et description */
 
@@ -421,17 +420,13 @@ p.lienToute {
 	position: relative;
 	margin-right: 10px;}
 
-.slide * {
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; }
+.slide * { font-family: "Helvetica Neue",Helvetica,Arial,sans-serif; }
 
-.descriptionSlide {
-	position: absolute; top: 18%; left: 540px; }
+.descriptionSlide { position: absolute; top: 60px; right: 0; width: 400px; margin-right: 60px; }
 
-.descriptionSlide h2 {
-	font-size: 36px; line-height: 36px; }
+.descriptionSlide h2 { font-size: 36px; line-height: 36px; }
 
-.descriptionSlide h3 {
-	font-size: 36px; line-height: 36px; }
+.descriptionSlide h3 { font-size: 36px; line-height: 36px; }
 
 #accueil .descriptionSlide p.soustitre {
 	font-size: 20px;
@@ -529,15 +524,9 @@ html #colonneSecondaire dd p {
 	padding-left: 0;
 }
 
-#accueil h3.titreArticle + p.descriptif {
-	margin-top: 2.3em;
-}
+#accueil h3.titreArticle + p.descriptif { margin-top: 2.3em; }
 
-#article #colonneSecondaire #blocInfosLivre, #rubrique .secteur199 #colonneSecondaire #blocInfosLivre {
-	xborder: 1px solid #000; xborder-width: 1px 0;
-	margin: 2em 0 2em;
-	xpadding: .25em 0;
-}
+#article #colonneSecondaire #blocInfosLivre, #rubrique .secteur199 #colonneSecondaire #blocInfosLivre { margin: 2em 0 2em; }
 
 #article #colonneSecondaire #blocInfosLivre #infosLivre, #rubrique .secteur199 #colonneSecondaire #blocInfosLivre #infosLivre {
 	float: right;
@@ -547,17 +536,11 @@ html #colonneSecondaire dd p {
 	float: left;
 	width: 160px; }
 
-.secteur194 #blocInfosLivre, .secteur230 #blocInfosLivre {
-	margin-bottom: 4em;
-}
+.secteur194 #blocInfosLivre, .secteur230 #blocInfosLivre { margin-bottom: 4em; }
 
-#blocInfosLivre p#logoLivre {
-	margin-bottom: 0;
-}
+#blocInfosLivre p#logoLivre { margin-bottom: 0; }
 
-#colonneSecondaire #infosLivre {
-	margin: .3em 0 0;
-}
+#colonneSecondaire #infosLivre { margin: .3em 0 0; }
 
 /* rubriques */
 
@@ -602,7 +585,7 @@ html #colonneSecondaire dd p {
 	text-transform: uppercase;
 }
 
-#rubrique .secteur230 #titreRubrique h1, #rubrique .secteur194 #titreRubrique h1 {
+#rubrique .secteur230 #titreRubrique h1, #rubrique .secteur194 #titreRubrique h1, #rubrique .rubrique236 #titreRubrique h1, #rubrique .rubrique237 #titreRubrique h1 {
 	margin-bottom: 0; }
 
 #rubrique .rubrique196 h1 {
@@ -805,8 +788,7 @@ span.libelle {
 
 .agenda .vevent dd.titre {
 	margin: 0; margin-left: 8.5em;
-	padding: 0;
-	xmargin-bottom: .5em; }
+	padding: 0; }
 
 .agenda .vevent dd p { margin-bottom: 0; font-size: 13px; }
 
@@ -898,6 +880,12 @@ dl.affiches dd.logo {
 	padding: 10px 0;
 }
 
+/* rubrique : composition rubrique-presentation-livre */
+#corps .logo-rubrique { width: 220px; overflow: hidden; float: left; }
+#corps .logo-rubrique img {
+	position: absolute; z-index: -1; }
+#rubrique #corps #contenu { z-index: 99; }
+
 
 /* articles */
 
@@ -957,7 +945,9 @@ dl.affiches dd.logo {
 	margin-left: 120px;
 }
 
-.rubrique230 #texte p, .rubrique230 #texte h2, .rubrique230 #texte h3, .rubrique230 #texte h4, .rubrique230 #texte h5, .rubrique230 #texte h6, .rubrique230 #texte ul, .rubrique230 #texte ol {
+.rubrique230 #texte p, .rubrique230 #texte h2, .rubrique230 #texte h3, .rubrique230 #texte h4, .rubrique230 #texte h5, .rubrique230 #texte h6, .rubrique230 #texte ul, .rubrique230 #texte ol,
+.rubrique236 #texte p, .rubrique236 #texte h2, .rubrique236 #texte h3, .rubrique236 #texte h4, .rubrique236 #texte h5, .rubrique236 #texte h6, .rubrique236 #texte ul, .rubrique236 #texte ol,
+.rubrique237 #texte p, .rubrique237 #texte h2, .rubrique237 #texte h3, .rubrique237 #texte h4, .rubrique237 #texte h5, .rubrique237 #texte h6, .rubrique237 #texte ul, .rubrique237 #texte ol {
 	margin-left: 0;
 }
 
@@ -1255,7 +1245,7 @@ dl#documents dd.descriptif {
 /* pied de page */
 
 #piedPage dl {
-	margin-right: 20px;
+	margin-right: 20px; margin-bottom: 2em;
 	line-height: 1.3;
 }
 
